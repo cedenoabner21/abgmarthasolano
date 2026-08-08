@@ -1,139 +1,299 @@
-/* RESET BÁSICO Y VARIABLES */
+/* ======================================================
+   SISTEMA CROMÁTICO Y TIPOGRÁFICO OFICIAL (INVERTIDO)
+====================================================== */
+:root {
+    --azulMS: #1a4357;             /* Azul Petróleo Profundo (Caja Principal) */
+    --cobrizoClaroMS: #df9b88;     /* Degradado Cobrizo Claro */
+    --cobrizoMedioMS: #dd8462;     /* Cobre Principal */
+    --cobrizoOscuroMS: #b57052;    /* Degradado Cobrizo Oscuro */
+    --marfilCalidoMS: #efe1dd;    /* Marfil Cálido */
+    --marfilClaroMS: #f6f5f2;     /* Marfil Claro */
+    --grisPiedraMS: #afadb2;      /* Gris Piedra (Fondo General) */
+    --grisProfundoMS: #667073;    /* Gris Profundo (Textos Secundarios) */
+
+    --font-bodoni: 'Libre Bodoni', Didot, serif; 
+    --font-ttdrugs: 'Montserrat', sans-serif;
+
+    --degradado-cobrizo-oficial: linear-gradient(135deg, #df9b88 0%, #dd8462 50%, #b57052 100%);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root {
-    --fondo-oscuro: #1a4357;
-    --tarjeta-bg: #1a4357;
-    --dorado-legal: linear-gradient(135deg, #df9b88, #dd8462, #b57052);
-    --blanco: #ffffff;
-    --gris-texto: #f6f5f2;
-}
-
+/* FONDO PLOMO / GRIS PIEDRA (#AFADB2) */
+/* AJUSTE AL CUERPO PARA DAR ESPACIO A LA CABECERA FIJA */
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--fondo-oscuro);
-    color: var(--blanco);
+    background-color: var(--grisPiedraMS);
+    color: var(--marfilClaroMS);
+    font-family: var(--font-ttdrugs);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* SECCIÓN CENTRAL EN CONSTRUCCIÓN */
-.contenedor-principal {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
+    padding: 110px 20px 40px 20px; /* Padding superior para no solapar el header */
     text-align: center;
 }
 
-.caja-mantenimiento {
-    max-width: 600px;
-    background: linear-gradient(135deg, #df9b88, #dd8462, #b57052);
-    padding: 50px 30px;
-    border-radius: 16px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+/* ======================================================
+   CABECERA EN AZUL PETRÓLEO PROFUNDO (#1A4357)
+====================================================== */
+.cabecera-fija {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--azulMS); /* Color base azul solicitado */
+    border-bottom: 1px solid rgba(239, 225, 221, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 12px 0;
 }
 
-.caja-mantenimiento:hover {
-    transform: translateY(-5px);
+.contenedor-cabecera {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-header {
+    height: 65px;
+    width: auto;
+    display: block;
     transition: transform 0.3s ease;
+
 }
 
-.caja-mantenimiento h1 {
-    font-size: 32px;
-    margin-bottom: 15px;
+.logo-header:hover {
+    transform: scale(1.03);
+}
+
+/* ENLACES DEL MENÚ */
+.navegacion-principal {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navegacion-principal a {
+    font-family: var(--font-ttdrugs);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--marfilClaroMS);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.navegacion-principal a:hover {
+    color: var(--cobrizoMedioMS); /* Efecto cobre al pasar el mouse */
+}
+
+/* ADAPTACIÓN MÓVIL DE LA CABECERA */
+@media (max-width: 600px) {
+    .contenedor-cabecera {
+        padding: 0 15px;
+    }
+
+    .logo-header {
+        height: 35px;
+    }
+
+    .navegacion-principal {
+        gap: 15px;
+    }
+
+    .navegacion-principal a {
+        font-size: 12px;
+    }
+}
+
+/* LOGO ESQUINA */
+.logo-esquina {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    width: 120px;
+    height: auto;
+    z-index: 1000;
+}
+
+/* CAJA PRINCIPAL EN AZUL PETRÓLEO PROFUNDO (#1A4357) */
+.caja-animada {
+    max-width: 720px;
+    width: 100%;
+    background-color: var(--azulMS); /* Bloque institucional premium */
+    padding: 45px 35px;
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(26, 67, 87, 0.4);
+    border: 1px solid rgba(239, 225, 221, 0.15);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.caja-oculta {
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+}
+
+/* TEXTOS DENTRO DE LA CAJA AZUL (CONTRASTE MARFIL) */
+.marca-titulo {
+    font-family: var(--font-bodoni);
+    font-size: 38px;
     font-weight: 700;
+    color: var(--marfilClaroMS);
+    margin-bottom: 6px;
 }
 
-.caja-mantenimiento p {
-    color: var(--gris-texto);
-    font-size: 16px;
-    line-height: 1.6;
+.descriptor-profesional {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--cobrizoClaroMS);
+    margin-bottom: 18px;
+}
+
+.slogan-institucional {
+    font-family: var(--font-bodoni);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--marfilCalidoMS);
+    margin-bottom: 22px;
+}
+
+.titulo-seccion {
+    font-family: var(--font-bodoni);
+    font-size: 26px;
+    color: var(--marfilClaroMS);
+    margin-bottom: 8px;
+}
+
+.subtitulo-seccion {
+    font-size: 14px;
+    color: var(--marfilCalidoMS);
     margin-bottom: 30px;
 }
 
-
-/* PIE DE PÁGINA / FOOTER */
-.pie-de-pagina {
-    background-color: #0b1120;
-    padding: 30px 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    text-align: center;
-}
-
-.contenido-footer {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.titulo-footer {
+.texto-bienvenida {
     font-size: 15px;
-    color: var(--gris-texto);
-    margin-bottom: 20px;
-    font-weight: 500;
+    line-height: 1.6;
+    color: var(--marfilCalidoMS);
+    max-width: 580px;
+    margin: 0 auto 30px auto;
 }
 
-.redes-sociales {
+/* BARRA SUPERIOR Y BOTÓN REGRESAR */
+.barra-superior {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    justify-content: flex-start;
     margin-bottom: 20px;
 }
 
-.icono-red {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 44px;
-    height: 44px;
-    background-color: var(--tarjeta-bg);
-    color: var(--blanco);
-    border-radius: 50%;
-    font-size: 20px;
-    text-decoration: none;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.icono-red:hover {
-    transform: translateY(-5px);
-}
-
-/* EFECTO HOVER CON COLORES OFICIALES POR RED */
-.icono-red.whatsapp:hover { background: linear-gradient(135deg, #df9b88, #dd8462, #b57052); }
-.icono-red.gmail:hover { background: linear-gradient(135deg, #df9b88, #dd8462, #b57052); }
-.icono-red.instagram:hover { background: linear-gradient(135deg, #df9b88, #dd8462, #b57052); }
-.icono-red.facebook:hover { background: linear-gradient(135deg, #df9b88, #dd8462, #b57052); }
-.icono-red.x-twitter:hover { background: linear-gradient(135deg, #df9b88, #dd8462, #b57052); }
-.icono-red.linkedin:hover { background: linear-gradient(135deg, #df9b88, #dd8462, #b57052); }
-.icono-red.youtube:hover { background: linear-gradient(135deg, #df9b88, #dd8462, #b57052)s; }
-
-.derechos {
+.boton-regresar {
+    background: transparent;
+    border: 1px solid var(--cobrizoMedioMS);
+    color: var(--marfilCalidoMS);
+    padding: 8px 18px;
+    border-radius: 30px;
     font-size: 13px;
-    color: #64748b;
-    margin-top: 15px;
+    font-family: var(--font-ttdrugs);
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
 }
 
-/* ADAPTACIÓN MÓVIL */
+.boton-regresar:hover {
+    background: var(--cobrizoMedioMS);
+    color: var(--marfilClaroMS);
+}
+
+/* BOTÓN COBRIZO PRINCIPAL */
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+}
+
+.boton-cobrizo {
+    padding: 14px 32px;
+    font-size: 15px;
+    font-family: var(--font-ttdrugs);
+    font-weight: 600;
+    border-radius: 50px;
+    border: none;
+    background: var(--degradado-cobrizo-oficial);
+    color: var(--marfilClaroMS);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(221, 132, 98, 0.4);
+    transition: all 0.3s ease;
+}
+
+.boton-cobrizo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(221, 132, 98, 0.6);
+}
+
+/* TARJETAS INTERNAS DE OPCIONES */
+.grid-opciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 18px;
+    width: 100%;
+}
+
+.boton-opcion {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(221, 132, 98, 0.25);
+    padding: 22px 18px;
+    border-radius: 12px;
+    color: var(--marfilClaroMS);
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.categoria-badge {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--cobrizoClaroMS);
+    font-weight: 700;
+}
+
+.boton-opcion strong {
+    font-family: var(--font-bodoni);
+    font-size: 19px;
+    color: var(--marfilClaroMS);
+}
+
+/* Uso de Gris Piedra (#AFADB2) para descripciones secundarias */
+.boton-opcion small {
+    font-size: 13px;
+    color: var(--grisPiedraMS);
+}
+
+.boton-opcion:hover {
+    background: rgba(221, 132, 98, 0.18);
+    border-color: var(--cobrizoMedioMS);
+    transform: translateY(-3px);
+}
+
+/* RESPONSIVO MÓVIL */
 @media (max-width: 600px) {
-    .caja-mantenimiento h1 {
-        font-size: 24px;
-    }
-    .redes-sociales {
-        gap: 12px;
-    }
-    .icono-red {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-    }
+    .marca-titulo { font-size: 28px; }
+    .caja-animada { padding: 30px 20px; }
+    .logo-esquina { width: 85px; top: 15px; right: 15px; }
 }

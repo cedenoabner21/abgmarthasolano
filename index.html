@@ -3,77 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abg. Martha Solano | Sitio en Desarrollo</title>
-    
-    <!-- Íconos de FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Tipografía Google Fonts -->
+    <title>Abg. Martha Solano | Soluciones Legales</title>
+
+    <!-- Fuentes Oficiales: Bodoni + Montserrat (TT Drugs) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
-    <!-- CONTENIDO PRINCIPAL: SITIO EN CONSTRUCCIÓN -->
-    <main class="contenedor-principal">
-        <div class="caja-mantenimiento">
-            <h1>Página en Desarrollo</h1>
-            <p>
-                Estamos creando la nueva plataforma digital para los servicios legales de la 
-                <strong>Abg. Martha Solano</strong>. Muy pronto podrás agendar tu consulta en línea.
-            </p>
+
+<!-- CABECERA PRINCIPAL (HEADER AZUL) -->
+<header class="cabecera-fija">
+    <div class="contenedor-cabecera">
+
+        <nav class="navegacion-principal">
+            <a href="#about-us">Sobre Nosotros</a>
+            <a href="#apartado2">apartado2</a>
+        </nav>
+        
+        <a href="#" class="enlace-logo">
+            <img src="logo-ms.png" alt="Logo Abg. Martha Solano" class="logo-header">
+        </a>
+    
+    </div>
+</header>
+
+    <!-- PANTALLA PRINCIPAL -->
+    <main id="pantalla-principal" class="caja-animada">
+        
+        <h1 class="marca-titulo">Abg. Martha Solano</h1>
+        <p class="descriptor-profesional">Abogada Familiar & Patrimonial</p>
+        <p class="slogan-institucional">"Confianza para decidir. Estrategia para proteger."</p>
+
+        <p class="texto-bienvenida">
+            Somos expertos en soluciones legales personalizadas. Completa nuestra breve guía interactiva para conectarte con la atención jurídica adecuada.
+        </p>
+
+        <div class="contenedor-botones">
+            <button id="boton-iniciar" class="boton-cobrizo">Iniciar Consulta Interactiva</button>
         </div>
+
     </main>
 
-    <!-- PIE DE PÁGINA / FOOTER CON REDES Y CONTACTO -->
-    <pie class="pie-de-pagina">
-        <div class="contenido-footer">
-            <p class="titulo-footer">Conéctate con la Abg. Martha Solano</p>
+    <!-- PANTALLA DE ENCUESTA -->
+    <section id="pantalla-encuesta" class="caja-animada caja-oculta" style="display: none;">
 
-            <div class="redes-sociales">
-                <!-- WhatsApp -->
-                <a href="https://wa.me/593000000000" target="_blank" class="icono-red whatsapp" title="WhatsApp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-
-                <!-- Gmail -->
-                <a href="mailto:correo@gmail.com" class="icono-red gmail" title="Correo Electrónico">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-
-                <!-- Instagram -->
-                <a href="https://instagram.com/TU_USUARIO" target="_blank" class="icono-red instagram" title="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-
-                <!-- Facebook -->
-                <a href="https://facebook.com/TU_USUARIO" target="_blank" class="icono-red facebook" title="Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-
-                <!-- X (Twitter) -->
-                <a href="https://x.com/TU_USUARIO" target="_blank" class="icono-red x-twitter" title="X (Twitter)">
-                    <i class="fa-brands fa-x-twitter"></i>
-                </a>
-
-                <!-- LinkedIn -->
-                <a href="https://linkedin.com/in/TU_USUARIO" target="_blank" class="icono-red linkedin" title="LinkedIn">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-
-                <!-- YouTube -->
-                <a href="https://youtube.com/@TU_USUARIO" target="_blank" class="icono-red youtube" title="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-            </div>
-
-            <p class="derechos">&copy; <span id="year"></span> Abg. Martha Solano. Todos los derechos reservados. | Desarrollado por Page113</p>
+        <!-- BARRA SUPERIOR PARA EL BOTÓN (Evita solapamientos con el texto) -->
+        <div class="barra-superior">
+            <button id="boton-regresar" class="boton-regresar">
+                <span class="icono-flecha">&#8617;</span> Regresar
+            </button>
         </div>
-    </pie>
 
-    <script src="script.js"></script>
+        <h2 class="titulo-seccion">¿En qué área legal necesitas apoyo profesional?</h2>
+        <p class="subtitulo-seccion">Selecciona la categoría que mejor describa tu situación:</p>
+
+        <div class="contenedor-botones grid-opciones">
+            <button id="btn-familia" class="boton-opcion" onclick="registrarRespuesta('Derecho Familiar')">
+                <span class="categoria-badge">Área 01</span>
+                <strong>Derecho Familiar</strong>
+                <small>Divorcios, pensiones, custodia y acuerdos</small>
+            </button>
+
+            <button id="btn-propiedades" class="boton-opcion" onclick="registrarRespuesta('Derecho Patrimonial')">
+                <span class="categoria-badge">Área 02</span>
+                <strong>Derecho Patrimonial</strong>
+                <small>Testamentos, organización de bienes y contratos</small>
+            </button>
+        </div>
+
+    </section>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
