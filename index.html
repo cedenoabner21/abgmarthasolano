@@ -3,80 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abg. Martha Solano | Soluciones Legales</title>
+    <title>Abg. Martha Solano | Firma Legal</title>
 
-    <!-- Fuentes Oficiales: Bodoni + Montserrat (TT Drugs) -->
+    <!-- Fuentes Oficiales del Manual de Marca -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="testEstilos.css">
 </head>
 <body>
 
-
-<!-- CABECERA PRINCIPAL (HEADER AZUL) -->
-<header class="cabecera-fija">
-    <div class="contenedor-cabecera">
-
-        <nav class="navegacion-principal">
-            <a href="#about-us">Sobre Nosotros</a>
-            <a href="#apartado2">apartado2</a>
-        </nav>
-        
-        <a href="#" class="enlace-logo">
-            <img src="logo-ms.png" alt="Logo Abg. Martha Solano" class="logo-header">
-        </a>
-    
-    </div>
-</header>
-
-    <!-- PANTALLA PRINCIPAL -->
-    <main id="pantalla-principal" class="caja-animada">
-        
-        <h1 class="marca-titulo">Abg. Martha Solano</h1>
-        <p class="descriptor-profesional">Abogada Familiar & Patrimonial</p>
-        <p class="slogan-institucional">"Confianza para decidir. Estrategia para proteger."</p>
-
-        <p class="texto-bienvenida">
-            Somos expertos en soluciones legales personalizadas. Completa nuestra breve guía interactiva para conectarte con la atención jurídica adecuada.
-        </p>
-
-        <div class="contenedor-botones">
-            <button id="boton-iniciar" class="boton-cobrizo">Iniciar Consulta Interactiva</button>
+    <!-- CABECERA FIJA QUE CORTA LA LÁMINA -->
+    <header class="cabecera-fija">
+        <div class="contenedor-cabecera">
+            <a href="#" class="enlace-logo">
+                <img src="logo_MS.png" alt="Logo MS" class="logo-header">
+            </a>
+            <nav class="navegacion-principal">
+                <a href="#inicio" class="activo">Inicio</a>
+                <a href="#identidad">Identidad MS</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
         </div>
+    </header>
 
-    </main>
+    <!-- CONTENEDOR PRINCIPAL: EFECTO HOJA CORTADA -->
+    <div class="hoja-pagina">
 
-    <!-- PANTALLA DE ENCUESTA -->
-    <section id="pantalla-encuesta" class="caja-animada caja-oculta" style="display: none;">
+        <!-- SECCIÓN 1: HERO DINÁMICO (CARRUSEL SLIDER) -->
+        <section id="inicio" class="seccion-hero">
+            <div class="hero-carrusel">
+                
+                <!-- COLUMNA IZQUIERDA: TEXTO DINÁMICO -->
+                <div class="hero-col-texto">
+                    <span class="badge-area" id="slide-badge">Derecho Familiar</span>
+                    <h1 id="slide-titulo">Protección Institucional para tu Familia</h1>
+                    <p id="slide-descripcion">
+                        Asesoría jurídica integral en divorcios, pensiones alimenticias, custodias y acuerdos patrimoniales diseñados para brindar tranquilidad a tu hogar.
+                    </p>
+                    <a href="#contacto" class="boton-cobrizo">Agendar Consulta</a>
+                </div>
 
-        <!-- BARRA SUPERIOR PARA EL BOTÓN (Evita solapamientos con el texto) -->
-        <div class="barra-superior">
-            <button id="boton-regresar" class="boton-regresar">
-                <span class="icono-flecha">&#8617;</span> Regresar
-            </button>
+                <!-- BOTON DE NAVEGACION ATRAS -->
+                <button class="boton-carrusel flecha-izq" onclick="anteriorSlide()">&#10094;</button>
+
+                <!-- COLUMNA DERECHA: IMAGEN DINÁMICA CON DIFUMINADO -->
+                <div class="hero-col-imagen">
+                    <div class="marco-imagen">
+                        <div class="capa-imagen">
+                            <img id="slide-imagen" src="foto1.jpg" alt="Servicios Legales Abg. Martha Solano">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTON DE NAVEGACIÓN SIGUIENTE -->
+                <button class="boton-carrusel flecha-der" onclick="siguienteSlideManual()">&#10095;</button>
+
+            </div>
+
+            <!-- INDICADORES DEL SLIDER -->
+            <div class="controles-slider">
+                <span class="punto activo" onclick="cambiarSlideManual(0)"></span>
+                <span class="punto" onclick="cambiarSlideManual(1)"></span>
+                <span class="punto" onclick="cambiarSlideManual(2)"></span>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: CUADROS AL ESTILO PAGE113 -->
+        <section id="identidad" class="seccion-bloques">
+            <h2 class="titulo-seccion">Conoce el Ejercicio Profesional</h2>
+            <p class="subtitulo-seccion">Estrategias efectivas construidas con rigor técnico y legal.</p>
+
+            <div class="grid-tarjetas">
+                <div class="tarjeta-filosofia">
+                    <div class="imagen-cuadro">
+                        <img src="foto2.jpg" alt="Litigio y Asesoría">
+                    </div>
+                    <div class="contenido-cuadro">
+                        <h3>Litigio & Mediación</h3>
+                        <p>Resolución de conflictos mediante acuerdos estratégicos o representación judicial firme en tribunales.</p>
+                    </div>
+                </div>
+
+                <div class="tarjeta-filosofia">
+                    <div class="imagen-cuadro">
+                        <img src="foto3.jpg" alt="Planificación Patrimonial">
+                    </div>
+                    <div class="contenido-cuadro">
+                        <h3>Planificación Patrimonial</h3>
+                        <p>Estructuración de testamentos, donaciones y blindaje de activos familiares de forma legal y ordenada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div> <!-- FIN DE LA HOJA PÁGINA -->
+
+    <!-- PIE DE PÁGINA QUE CORTA LA LÁMINA EN LA BASE -->
+    <footer class="pie-de-pagina">
+        <div class="contenedor-footer">
+            <p>&copy; 2026 Abg. Martha Solano - Todos los derechos reservados.</p>
+            <div class="redes-footer">
+                <a href="https://www.instagram.com/abg.marthasolano/">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="https://api.whatsapp.com/send/?phone=593990485395&text&type=phone_number&app_absent=0">WhatsApp</a>
+                <a href="https://www.linkedin.com/in/abg-martha-solano-4850011a4/">Linkedin</a>
+                <a href="contacto@abgmarthasolano.com">Mail</a>
+            </div>
         </div>
+    </footer>
 
-        <h2 class="titulo-seccion">¿En qué área legal necesitas apoyo profesional?</h2>
-        <p class="subtitulo-seccion">Selecciona la categoría que mejor describa tu situación:</p>
-
-        <div class="contenedor-botones grid-opciones">
-            <button id="btn-familia" class="boton-opcion" onclick="registrarRespuesta('Derecho Familiar')">
-                <span class="categoria-badge">Área 01</span>
-                <strong>Derecho Familiar</strong>
-                <small>Divorcios, pensiones, custodia y acuerdos</small>
-            </button>
-
-            <button id="btn-propiedades" class="boton-opcion" onclick="registrarRespuesta('Derecho Patrimonial')">
-                <span class="categoria-badge">Área 02</span>
-                <strong>Derecho Patrimonial</strong>
-                <small>Testamentos, organización de bienes y contratos</small>
-            </button>
-        </div>
-
-    </section>
-
-    <script src="script.js" defer></script>
+    <script src="testScripts.js" defer></script>
 </body>
 </html>
