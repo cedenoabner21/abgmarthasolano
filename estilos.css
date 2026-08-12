@@ -1,20 +1,24 @@
 /* ======================================================
-   SISTEMA CROMÁTICO Y TIPOGRÁFICO OFICIAL (INVERTIDO)
+   SISTEMA CROMÁTICO Y TIPOGRÁFICO UNIFICADO
 ====================================================== */
 :root {
-    --azulMS: #1a4357;             /* Azul Petróleo Profundo (Caja Principal) */
-    --cobrizoClaroMS: #df9b88;     /* Degradado Cobrizo Claro */
+    --azulMS: #1a4357;             /* Azul Petróleo Profundo */
+    --cobrizoClaroMS: #df9b88;     
     --cobrizoMedioMS: #dd8462;     /* Cobre Principal */
-    --cobrizoOscuroMS: #b57052;    /* Degradado Cobrizo Oscuro */
-    --marfilCalidoMS: #efe1dd;    /* Marfil Cálido */
-    --marfilClaroMS: #f6f5f2;     /* Marfil Claro */
-    --grisPiedraMS: #afadb2;      /* Gris Piedra (Fondo General) */
-    --grisProfundoMS: #667073;    /* Gris Profundo (Textos Secundarios) */
+    --cobrizoOscuroMS: #b57052;    
+    --marfilCalidoMS: #efe1dd;    
+    --marfilClaroMS: #f6f5f2;     /* Marfil / Hoja de Trabajo */
+    --grisPiedraMS: #afadb2;      /* Gris Piedra (Fondo Marco) */
+    --grisProfundoMS: #667073;    
 
     --font-bodoni: 'Libre Bodoni', Didot, serif; 
     --font-ttdrugs: 'Montserrat', sans-serif;
 
     --degradado-cobrizo-oficial: linear-gradient(135deg, #df9b88 0%, #dd8462 50%, #b57052 100%);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 * {
@@ -23,31 +27,27 @@
     box-sizing: border-box;
 }
 
-/* FONDO PLOMO / GRIS PIEDRA (#AFADB2) */
-/* AJUSTE AL CUERPO PARA DAR ESPACIO A LA CABECERA FIJA */
+/* FONDO MARCO EXTERIOR */
 body {
     background-color: var(--grisPiedraMS);
-    color: var(--marfilClaroMS);
     font-family: var(--font-ttdrugs);
+    color: var(--grisProfundoMS);
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 110px 20px 40px 20px; /* Padding superior para no solapar el header */
-    text-align: center;
 }
 
 /* ======================================================
-   CABECERA EN AZUL PETRÓLEO PROFUNDO (#1A4357)
+   CABECERA FIJA
 ====================================================== */
 .cabecera-fija {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--azulMS); /* Color base azul solicitado */
-    border-bottom: 1px solid rgba(239, 225, 221, 0.15);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: var(--azulMS);
+    border-bottom: 2px solid var(--cobrizoMedioMS);
     z-index: 1000;
     padding: 12px 0;
 }
@@ -55,100 +55,107 @@ body {
 .contenedor-cabecera {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 0px;
+    padding: 0 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo-header {
-    height: 65px;
+.logo-header { 
+    height: 70px; 
     width: auto;
     display: block;
     transition: transform 0.3s ease;
-
 }
 
 .logo-header:hover {
     transform: scale(1.03);
 }
 
-/* ENLACES DEL MENÚ */
-.navegacion-principal {
-    display: flex;
+.navegacion-principal { 
+    display: flex; 
     align-items: center;
-    gap: 30px;
+    gap: 25px; 
 }
 
 .navegacion-principal a {
-    font-family: var(--font-ttdrugs);
-    font-size: 14px;
-    font-weight: 600;
     color: var(--marfilClaroMS);
     text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
 
-.navegacion-principal a:hover {
-    color: var(--cobrizoMedioMS); /* Efecto cobre al pasar el mouse */
+.navegacion-principal a:hover, 
+.navegacion-principal a.activo {
+    color: var(--cobrizoClaroMS);
 }
 
-/* ADAPTACIÓN MÓVIL DE LA CABECERA */
-@media (max-width: 600px) {
-    .contenedor-cabecera {
-        padding: 0 15px;
-    }
-
-    .logo-header {
-        height: 35px;
-    }
-
-    .navegacion-principal {
-        gap: 15px;
-    }
-
-    .navegacion-principal a {
-        font-size: 12px;
-    }
-}
-
-/* LOGO ESQUINA */
-.logo-esquina {
-    position: fixed;
-    top: 20px;
-    right: 25px;
-    width: 120px;
-    height: auto;
-    z-index: 1000;
-}
-
-/* CAJA PRINCIPAL EN AZUL PETRÓLEO PROFUNDO (#1A4357) */
-.caja-animada {
-    max-width: 720px;
+/* ======================================================
+   CONTENEDOR TIPO HOJA (CENTRADOR Y ALTURA UNIFORME)
+====================================================== */
+.hoja-pagina {
     width: 100%;
-    background-color: var(--azulMS); /* Bloque institucional premium */
-    padding: 45px 35px;
-    border-radius: 20px;
-    box-shadow: 0 20px 45px rgba(26, 67, 87, 0.4);
-    border: 1px solid rgba(239, 225, 221, 0.15);
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    max-width: 1050px;
+    background-color: var(--marfilClaroMS);
+    margin-top: 100px;   
+    margin-bottom: 40px; 
+    padding: 60px 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    
+    min-height: calc(100vh - 180px);
+    display: flex;
+    justify-content: center;
+    align-items: center;     
+    flex-direction: column;
+}
+
+/* ======================================================
+   ESTRUCTURA SIN CAJA Y ANIMACIÓN POR ELEMENTO (EASE-IN-OUT)
+====================================================== */
+.caja-animada {
+    max-width: 800px;
+    width: 100%;
+    background: transparent;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* CADA ELEMENTO HIJO SE ANIMA INDIVIDUALMENTE CON TRANSICIÓN SUAVE */
+.caja-animada > * {
     opacity: 1;
     transform: translateY(0);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.caja-oculta {
-    opacity: 0;
-    transform: translateY(15px);
+/* ESTADO OCULTO: DESPLAZA Y OCULTA HADA HIJO */
+.caja-oculta > * {
+    opacity: 0 !important;
+    transform: translateY(20px) !important;
     pointer-events: none;
 }
 
-/* TEXTOS DENTRO DE LA CAJA AZUL (CONTRASTE MARFIL) */
+/* ESCALONAMIENTO (STAGGER) PARA EFECTO FLUIDO */
+.caja-animada > *:nth-child(1) { transition-delay: 0.05s; }
+.caja-animada > *:nth-child(2) { transition-delay: 0.12s; }
+.caja-animada > *:nth-child(3) { transition-delay: 0.19s; }
+.caja-animada > *:nth-child(4) { transition-delay: 0.26s; }
+.caja-animada > *:nth-child(5) { transition-delay: 0.33s; }
+.caja-animada > *:nth-child(6) { transition-delay: 0.40s; }
+
+/* ======================================================
+   ESTILOS DE TEXTO E INTEGRACIÓN VISUAL
+====================================================== */
 .marca-titulo {
     font-family: var(--font-bodoni);
-    font-size: 38px;
+    font-size: 42px;
     font-weight: 700;
-    color: var(--marfilClaroMS);
+    color: var(--azulMS);
     margin-bottom: 6px;
 }
 
@@ -157,50 +164,54 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--cobrizoClaroMS);
+    color: var(--cobrizoMedioMS);
     margin-bottom: 18px;
 }
 
 .slogan-institucional {
     font-family: var(--font-bodoni);
-    font-size: 18px;
+    font-size: 20px;
     font-style: italic;
-    color: var(--marfilCalidoMS);
-    margin-bottom: 22px;
+    color: var(--azulMS);
+    margin-bottom: 25px;
 }
 
 .titulo-seccion {
     font-family: var(--font-bodoni);
-    font-size: 26px;
-    color: var(--marfilClaroMS);
+    font-size: 32px;
+    color: var(--azulMS);
     margin-bottom: 8px;
+    text-align: center;
 }
 
 .subtitulo-seccion {
-    font-size: 14px;
-    color: var(--marfilCalidoMS);
-    margin-bottom: 30px;
+    font-size: 15px;
+    color: var(--grisProfundoMS);
+    margin-bottom: 35px;
+    text-align: center;
 }
 
 .texto-bienvenida {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.6;
-    color: var(--marfilCalidoMS);
-    max-width: 580px;
-    margin: 0 auto 30px auto;
+    color: var(--grisProfundoMS);
+    max-width: 620px;
+    margin: 0 auto 35px auto;
 }
 
-/* BARRA SUPERIOR Y BOTÓN REGRESAR */
+/* ======================================================
+   BOTONES Y CONTROLES INTERACTIVOS
+====================================================== */
 .barra-superior {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .boton-regresar {
     background: transparent;
     border: 1px solid var(--cobrizoMedioMS);
-    color: var(--marfilCalidoMS);
+    color: var(--cobrizoOscuroMS);
     padding: 8px 18px;
     border-radius: 30px;
     font-size: 13px;
@@ -218,14 +229,14 @@ body {
     color: var(--marfilClaroMS);
 }
 
-/* BOTÓN COBRIZO PRINCIPAL */
 .contenedor-botones {
     display: flex;
     justify-content: center;
 }
 
 .boton-cobrizo {
-    padding: 14px 32px;
+    display: inline-block;
+    padding: 15px 36px;
     font-size: 15px;
     font-family: var(--font-ttdrugs);
     font-weight: 600;
@@ -236,6 +247,7 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(221, 132, 98, 0.4);
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .boton-cobrizo:hover {
@@ -243,57 +255,142 @@ body {
     box-shadow: 0 8px 22px rgba(221, 132, 98, 0.6);
 }
 
-/* TARJETAS INTERNAS DE OPCIONES */
+/* OPCIONES DE TARJETAS LIGERAS SOBRE FONDO MARFIL */
 .grid-opciones {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
     width: 100%;
 }
 
 .boton-opcion {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(221, 132, 98, 0.25);
-    padding: 22px 18px;
+    background: #ffffff;
+    border: 1px solid rgba(175, 173, 178, 0.3);
+    padding: 24px 20px;
     border-radius: 12px;
-    color: var(--marfilClaroMS);
+    color: var(--grisProfundoMS);
     cursor: pointer;
     text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    transition: all 0.3s ease;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease-in-out;
 }
 
 .categoria-badge {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--cobrizoClaroMS);
+    color: var(--cobrizoMedioMS);
     font-weight: 700;
 }
 
 .boton-opcion strong {
     font-family: var(--font-bodoni);
-    font-size: 19px;
-    color: var(--marfilClaroMS);
+    font-size: 20px;
+    color: var(--azulMS);
 }
 
-/* Uso de Gris Piedra (#AFADB2) para descripciones secundarias */
 .boton-opcion small {
-    font-size: 13px;
-    color: var(--grisPiedraMS);
+    font-size: 13.5px;
+    color: var(--grisProfundoMS);
 }
 
 .boton-opcion:hover {
-    background: rgba(221, 132, 98, 0.18);
     border-color: var(--cobrizoMedioMS);
     transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(221, 132, 98, 0.2);
 }
 
-/* RESPONSIVO MÓVIL */
-@media (max-width: 600px) {
-    .marca-titulo { font-size: 28px; }
-    .caja-animada { padding: 30px 20px; }
-    .logo-esquina { width: 85px; top: 15px; right: 15px; }
+/* ======================================================
+   FOOTER & WHATSAPP
+====================================================== */
+.pie-de-pagina {
+    width: 100%;
+    background-color: var(--azulMS);
+    color: var(--marfilCalidoMS);
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.contenedor-footer {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+}
+
+.redes-footer a { 
+    color: var(--marfilClaroMS); 
+    margin-left: 15px; 
+    text-decoration: none; 
+    transition: color 0.3s;
+}
+
+.redes-footer a:hover {
+    color: var(--cobrizoClaroMS);
+}
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--azulMS);
+    color: #ffffff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    background: var(--degradado-cobrizo-oficial);
+}
+
+/* ======================================================
+   ADAPTACIÓN MÓVIL
+====================================================== */
+@media (max-width: 768px) {
+    .hoja-pagina { 
+        padding: 40px 20px; 
+        margin-top: 80px; 
+    }
+    .contenedor-cabecera {
+        padding: 0 15px;
+    }
+    .logo-header {
+        height: 50px;
+    }
+    .navegacion-principal {
+        gap: 12px;
+    }
+    .navegacion-principal a {
+        font-size: 12px;
+    }
+    .marca-titulo { 
+        font-size: 32px; 
+    }
+    .titulo-seccion {
+        font-size: 24px;
+    }
+    .contenedor-footer { 
+        flex-direction: column; 
+        gap: 10px; 
+        text-align: center; 
+    }
+    .redes-footer a {
+        margin: 0 8px;
+    }
 }

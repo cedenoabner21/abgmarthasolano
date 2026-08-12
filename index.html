@@ -8,6 +8,11 @@
 <title>Abg. Martha Solano | Soluciones Legales</title>
 <meta name="description" content="Servicios jurídicos especializados en Derecho Familiar y Patrimonial.">
 
+
+<!-- Favicon estándar -->
+<link rel="icon" href="favicon.png" type="image/png">
+
+
 <!-- OPEN GRAPH PARA WHATSAPP / FACEBOOK / LINKEDIN -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Abg. Martha Solano | Abogada Especialista en Derecho Familiar y Patrimonial">
@@ -15,20 +20,32 @@
 <meta property="og:image" content="https://abgmarthasolano.com/logo-ms.png">
 <meta property="og:url" content="https://abgmarthasolano.com/">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+
 <!-- SCHEMA JSON-LD PARA GOOGLE -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LegalService",
-  "name": "Abg. Martha Solano",
-  "image": "https://abgmarthasolano.com/logo-ms.png",
-  "telephone": "+593990485395",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "EC"
-  }
+<script type="application/ld+json"> {
+
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Abg. Martha Solano",
+    "url": "https://abgmarthasolano.com/",
+    "logo": "https://abgmarthasolano.com/logo-ms.png",
+    "image": "https://abgmarthasolano.com/logo-ms.png",
+    "telephone": "+593990485395",
+    "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "EC"
+        }
+
+    "sameAs": [
+        "https://www.instagram.com/abg.marthasolano/",
+        "https://www.linkedin.com/in/abg-martha-solano-4850011a4/"
+    ]
 }
+
 </script>
+
     <!-- Fuentes Oficiales del Manual de Marca -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +53,7 @@
 
     <link rel="stylesheet" href="testEstilos.css">
 </head>
+
 <body>
 
     <!-- CABECERA FIJA QUE CORTA LA LÁMINA -->
@@ -45,9 +63,9 @@
                 <img src="logo-ms.png" alt="Logo MS" class="logo-header">
             </a>
             <nav class="navegacion-principal">
-                <a href="#inicio" class="activo">Inicio</a>
+                <a href="index.html" class="activo">Inicio</a>
                 <a href="#identidad">Identidad MS</a>
-                <a href="#servicios">Servicios</a>
+                <a href="encuesta.html">Servicios</a>
                 <a href="#contacto">Contacto</a>
             </nav>
         </div>
@@ -103,7 +121,7 @@
             <div class="grid-tarjetas">
                 <div class="tarjeta-filosofia">
                     <div class="imagen-cuadro">
-                        <img src="foto2.jpg" alt="Litigio y Asesoría">
+                        <img src="foto4.jpg" alt="Litigio y Asesoría">
                     </div>
                     <div class="contenido-cuadro">
                         <h3>Litigio & Mediación</h3>
@@ -113,7 +131,7 @@
 
                 <div class="tarjeta-filosofia">
                     <div class="imagen-cuadro">
-                        <img src="foto3.jpg" alt="Planificación Patrimonial">
+                        <img src="foto5.jpg" alt="Planificación Patrimonial">
                     </div>
                     <div class="contenido-cuadro">
                         <h3>Planificación Patrimonial</h3>
@@ -132,10 +150,18 @@
             <div class="redes-footer">
                 <a href="https://www.instagram.com/abg.marthasolano/">Instagram</a>
                 <a href="#">Facebook</a>
-                <a href="https://api.whatsapp.com/send/?phone=593990485395&text&type=phone_number&app_absent=0">WhatsApp</a>
+                <a href="https://wa.me/593999999999?text=Hola,%20me%20gustaría%20recibir%20más%20información">
+            </a>
                 <a href="https://www.linkedin.com/in/abg-martha-solano-4850011a4/">Linkedin</a>
                 <a href="contacto@abgmarthasolano.com">Mail</a>
             </div>
+            <a href="https://wa.me/593999999999?text=Hola,%20me%20gustaría%20recibir%20más%20información" 
+                class="whatsapp-btn" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Contactar por WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
         </div>
     </footer>
 

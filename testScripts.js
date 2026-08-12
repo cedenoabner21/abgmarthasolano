@@ -1,4 +1,7 @@
+
+// ==============================================
 // Base de datos de contenido para el Hero Slider
+// ==============================================
 const slides = [
     {
         badge: "Derecho Familiar",
