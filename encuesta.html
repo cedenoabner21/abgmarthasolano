@@ -66,33 +66,43 @@
         </main>
 
         <!-- PANTALLA DE ENCUESTA -->
-        <section id="pantalla-encuesta" class="caja-animada caja-oculta" style="display: none;">
+<!-- PANTALLA DE ENCUESTA -->
+<section id="pantalla-encuesta" class="caja-animada caja-oculta" style="display: none;">
 
-            <!-- BARRA SUPERIOR PARA EL BOTÓN -->
-            <div class="barra-superior">
-                <button id="boton-regresar" class="boton-regresar">
-                    <span class="icono-flecha">&#8617;</span> Regresar
-                </button>
-            </div>
+    <!-- BARRA SUPERIOR PARA EL BOTÓN -->
+    <div class="barra-superior">
+        <button id="boton-regresar" class="boton-regresar">
+            <span class="icono-flecha">&#8617;</span> Regresar
+        </button>
+    </div>
 
-            <h2 class="titulo-seccion">¿En qué área legal necesitas apoyo profesional?</h2>
-            <p class="subtitulo-seccion">Selecciona la categoría que mejor describa tu situación:</p>
+    <h2 class="titulo-seccion">¿En qué área legal necesitas apoyo profesional?</h2>
+    <p class="subtitulo-seccion">Selecciona la categoría que mejor describa tu situación:</p>
 
-            <div class="contenedor-botones grid-opciones">
-                <button id="btn-familia" class="boton-opcion" onclick="registrarRespuesta('Derecho Familiar')">
-                    <span class="categoria-badge">Área 01</span>
-                    <strong>Derecho Familiar</strong>
-                    <small>Divorcios, pensiones, custodia y acuerdos</small>
-                </button>
+    <div class="contenedor-botones grid-opciones">
+        
+        <button id="btn-familia" class="boton-opcion" onclick="registrarRespuesta('Derecho Familiar')">
+            <span class="categoria-badge">Área 01</span>
+            <strong>Derecho Familiar</strong>
+            <small>Divorcios, pensiones, custodia y acuerdos</small>
+        </button>
 
-                <button id="btn-propiedades" class="boton-opcion" onclick="registrarRespuesta('Derecho Patrimonial')">
-                    <span class="categoria-badge">Área 02</span>
-                    <strong>Derecho Patrimonial</strong>
-                    <small>Testamentos, organización de bienes y contratos</small>
-                </button>
-            </div>
+        <button id="btn-propiedades" class="boton-opcion" onclick="registrarRespuesta('Derecho Patrimonial')">
+            <span class="categoria-badge">Área 02</span>
+            <strong>Derecho Patrimonial</strong>
+            <small>Testamentos, organización de bienes y contratos</small>
+        </button>
 
-        </section>
+        <!-- NUEVO BOTÓN: GESTIÓN INMOBILIARIA -->
+        <button id="btn-inmobiliario" class="boton-opcion" onclick="registrarRespuesta('Gestión Inmobiliaria')">
+            <span class="categoria-badge">Área 03</span>
+            <strong>Gestión Inmobiliaria</strong>
+            <small>Arrendamientos, administración de bienes y contratos de inquilinos</small>
+        </button>
+
+    </div>
+
+</section>
 
     </div> <!-- FIN DE LA HOJA PÁGINA -->
 

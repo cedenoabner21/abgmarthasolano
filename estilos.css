@@ -133,7 +133,7 @@ body {
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-/* ESTADO OCULTO: DESPLAZA Y OCULTA HADA HIJO */
+/* ESTADO OCULTO: DESPLAZA Y OCULTA CADA HIJO */
 .caja-oculta > * {
     opacity: 0 !important;
     transform: translateY(20px) !important;
@@ -147,6 +147,35 @@ body {
 .caja-animada > *:nth-child(4) { transition-delay: 0.26s; }
 .caja-animada > *:nth-child(5) { transition-delay: 0.33s; }
 .caja-animada > *:nth-child(6) { transition-delay: 0.40s; }
+
+
+/* ======================================================
+   AJUSTES ESPECÍFICOS PARA LA PANTALLA DE ENCUESTA
+====================================================== */
+
+/* Sube todo el bloque (incluyendo el botón regresar) hacia arriba */
+#pantalla-encuesta {
+    margin-top: -60px; 
+}
+
+/* Agranda la pregunta principal (antes era 32px) */
+#pantalla-encuesta .titulo-seccion {
+    font-size: 40px; 
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+/* Adaptación para que no se desborde en celulares */
+@media (max-width: 768px) {
+    #pantalla-encuesta {
+        margin-top: -20px;
+    }
+    
+    #pantalla-encuesta .titulo-seccion {
+        font-size: 28px; /* Un poco más grande que el estándar en móviles */
+    }
+}
+
 
 /* ======================================================
    ESTILOS DE TEXTO E INTEGRACIÓN VISUAL
@@ -255,10 +284,10 @@ body {
     box-shadow: 0 8px 22px rgba(221, 132, 98, 0.6);
 }
 
-/* OPCIONES DE TARJETAS LIGERAS SOBRE FONDO MARFIL */
+/* OPCIONES DE TARJETAS EN GRID (3 BOTONES O MÁS) */
 .grid-opciones {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
     width: 100%;
 }

@@ -10,38 +10,47 @@ const botonInicio = document.getElementById("boton-iniciar");
 const botonRegresar = document.getElementById("boton-regresar");
 
 // Evento: Iniciar encuesta con animación fluida
-botonInicio.addEventListener("click", () => {
-    cajaPrincipal.classList.add("caja-oculta");
+if (botonInicio) {
+    botonInicio.addEventListener("click", () => {
+        cajaPrincipal.classList.add("caja-oculta");
 
-    setTimeout(() => {
-        cajaPrincipal.style.display = "none";
-        cajaEncuesta.style.display = "block";
-        
-        // Forzar reflujo para que la animación de entrada se ejecute limpia
-        void cajaEncuesta.offsetWidth; 
-        
-        cajaEncuesta.classList.remove("caja-oculta");
-    }, 400);
-});
+        setTimeout(() => {
+            cajaPrincipal.style.display = "none";
+            cajaEncuesta.style.display = "block";
+            
+            // Forzar reflujo para que la animación de entrada se ejecute limpia
+            void cajaEncuesta.offsetWidth; 
+            
+            cajaEncuesta.classList.remove("caja-oculta");
+        }, 400);
+    });
+}
 
 // Evento: Regresar al menú principal
-botonRegresar.addEventListener("click", () => {
-    cajaEncuesta.classList.add("caja-oculta");
+if (botonRegresar) {
+    botonRegresar.addEventListener("click", () => {
+        cajaEncuesta.classList.add("caja-oculta");
 
-    setTimeout(() => {
-        cajaEncuesta.style.display = "none";
-        cajaPrincipal.style.display = "block";
-        
-        void cajaPrincipal.offsetWidth;
-        
-        cajaPrincipal.classList.remove("caja-oculta");
-    }, 400);
-});
+        setTimeout(() => {
+            cajaEncuesta.style.display = "none";
+            cajaPrincipal.style.display = "block";
+            
+            void cajaPrincipal.offsetWidth;
+            
+            cajaPrincipal.classList.remove("caja-oculta");
+        }, 400);
+    });
+}
 
 // Registrar respuesta seleccionada por el cliente
 function registrarRespuesta(eleccion) {
     perfilCliente.necesidadLegal = eleccion;
     
-    // Aquí puedes redirigirla a WhatsApp o a un formulario de contacto directo
-    alert(`Área seleccionada: ${perfilCliente.necesidadLegal}\n\nPronto te redirigiremos con un especialista.`);
+    // Mensaje de confirmación o redirección personalizada
+    let mensajeWhatsApp = `Hola,%20quisiera%20recibir%20asesoría%20sobre%20${encodeURIComponent(eleccion)}`;
+    
+    alert(`Área seleccionada: ${perfilCliente.necesidadLegal}\n\nTe estamos redirigiendo a atención personalizada.`);
+    
+    // Redirección directa al WhatsApp profesional con mensaje predefinido
+    window.open(`https://wa.me/593990485395?text=${mensajeWhatsApp}`, '_blank');
 }
