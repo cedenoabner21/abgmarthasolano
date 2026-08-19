@@ -1,0 +1,133 @@
+/* ======================================================
+   PALETA OFICIAL Y CONFIGURACIÓN DE LÁMINA / MARCO
+====================================================== */
+:root {
+    --azulMS: #1a4357;             /* Azul Petróleo Profundo */
+    --cobrizoClaroMS: #df9b88;     
+    --cobrizoMedioMS: #dd8462;     /* Cobre Principal */
+    --cobrizoOscuroMS: #b57052;    
+    --marfilCalidoMS: #efe1dd;    
+    --marfilClaroMS: #f6f5f2;     /* Marfil / Hoja de Trabajo */
+    --grisPiedraMS: #afadb2;      /* Gris Piedra (Fondo Marco) */
+    --grisProfundoMS: #667073;    
+
+    --font-bodoni: 'Libre Bodoni', Didot, serif; 
+    --font-ttdrugs: 'Montserrat', sans-serif;
+
+    --degradado-cobrizo-oficial: linear-gradient(135deg, #df9b88 0%, #dd8462 50%, #b57052 100%);
+
+  --fuente-principal: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@font-face {
+  font-family: 'MiFuentePersonalizada';
+  src: url('ruta/a/la/fuente.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Muestra el texto de inmediato */
+}
+
+
+/* ==================================== */
+/* FONDO MERO FONDO (EL MARCO EXTERIOR) */
+/* ==================================== */
+body {
+    background-color: var(--grisPiedraMS);
+    font-family: var(--font-ttdrugs);
+    color: var(--grisProfundoMS);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ============================ */
+/* HEADER FIJO EN AZUL PETRÓLEO */
+/* ============================ */
+.cabecera-fija {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--azulMS);
+    border-bottom: 2px solid var(--cobrizoMedioMS);
+    z-index: 1000;
+    padding: 12px 0;
+}
+
+.contenedor-cabecera {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-header { height: 70px; }
+
+.navegacion-principal { display: flex; gap: 25px; }
+
+.navegacion-principal a {
+    color: var(--marfilClaroMS);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.navegacion-principal a:hover, .navegacion-principal a.activo {
+    color: var(--cobrizoClaroMS);
+}
+
+
+/* ======================================================== */
+/* CONTENEDOR TIPO HOJA (DESPLAZABLE ENTRE HEADER Y FOOTER) */
+/* ======================================================== */
+.hoja-pagina {
+    width: 100%;
+    max-width: 1050px;
+    background-color: var(--marfilClaroMS);
+    margin-top: 80px;    /* Espacio para la cabecera */
+    margin-bottom: 40px; /* Espacio para el footer */
+    padding: 50px 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ========================= */
+/* FOOTER QUE CORTA AL FINAL */
+/* ========================= */
+.pie-de-pagina {
+    width: 100%;
+    background-color: var(--azulMS);
+    color: var(--marfilCalidoMS);
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+.contenedor-footer {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.redes-footer a { color: var(--marfilClaroMS); margin-left: 15px; text-decoration: none; }
+
+/* ADAPTACIÓN MÓVIL */
+@media (max-width: 768px) {
+    .hero-carrusel { flex-direction: column; text-align: center; }
+    .hero-col-texto { text-align: center; }
+    .hoja-pagina { padding: 30px 20px; margin-top: 70px; }
+    .contenedor-footer { flex-direction: column; gap: 10px; text-align: center; }
+}
