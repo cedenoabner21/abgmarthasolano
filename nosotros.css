@@ -2,36 +2,30 @@
    PALETA OFICIAL Y CONFIGURACIÓN DE LÁMINA / MARCO
 ====================================================== */
 :root {
-    --azulMS: #1a4357;             /* Azul Petróleo Profundo */
+    --azulMS: #1a4357;             
     --cobrizoClaroMS: #df9b88;     
-    --cobrizoMedioMS: #dd8462;     /* Cobre Principal */
+    --cobrizoMedioMS: #dd8462;     
     --cobrizoOscuroMS: #b57052;    
     --marfilCalidoMS: #efe1dd;    
-    --marfilClaroMS: #f6f5f2;     /* Marfil / Hoja de Trabajo */
-    --grisPiedraMS: #afadb2;      /* Gris Piedra (Fondo Marco) */
+    --marfilClaroMS: #f6f5f2;     
+    --grisPiedraMS: #afadb2;      
     --grisProfundoMS: #667073;    
 
     --font-bodoni: 'Libre Bodoni', Didot, serif; 
     --font-ttdrugs: 'Montserrat', sans-serif;
 
     --degradado-cobrizo-oficial: linear-gradient(135deg, #df9b88 0%, #dd8462 50%, #b57052 100%);
-
-  --fuente-principal: 'Inter', sans-serif;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
-
-@font-face {
-  font-family: 'MiFuentePersonalizada';
-  src: url('ruta/a/la/fuente.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap; /* Muestra el texto de inmediato */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 
 /* ==================================== */
 /* FONDO MERO FONDO (EL MARCO EXTERIOR) */
@@ -45,7 +39,6 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
 
 /* ============================ */
 /* HEADER FIJO EN AZUL PETRÓLEO */
@@ -70,22 +63,29 @@ body {
     align-items: center;
 }
 
-.logo-header { height: 70px; }
+.logo-header { 
+    height: 70px; 
+    width: auto;
+}
 
-.navegacion-principal { display: flex; gap: 25px; }
+.navegacion-principal { 
+    display: flex; 
+    gap: 25px; 
+    align-items: center;
+}
 
 .navegacion-principal a {
     color: var(--marfilClaroMS);
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
-.navegacion-principal a:hover, .navegacion-principal a.activo {
+.navegacion-principal a:hover, 
+.navegacion-principal a.activo {
     color: var(--cobrizoClaroMS);
 }
-
 
 /* ======================================================== */
 /* CONTENEDOR TIPO HOJA (DESPLAZABLE ENTRE HEADER Y FOOTER) */
@@ -94,17 +94,12 @@ body {
     width: 100%;
     max-width: 1050px;
     background-color: var(--marfilClaroMS);
-    margin-top: 80px;    /* Espacio para la cabecera */
-    margin-bottom: 40px; /* Espacio para el footer */
+    margin-top: 100px;    
+    margin-bottom: 40px; 
     padding: 50px 40px;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
-
-
-/* ======================================================
-   ESTILOS ESPECÍFICOS: PÁGINA IDENTIDAD MS (NOSOTROS)
-====================================================== */
 
 /* HERO DE NOSOTROS */
 .seccion-nosotros-hero {
@@ -142,148 +137,163 @@ body {
     color: var(--grisProfundoMS);
 }
 
-/* TRES BLOQUES DE HISTORIA */
-.seccion-historia {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin: 40px 0;
+/* ======================================================
+   NUEVOS BLOQUES DE IDENTIDAD (ZIG-ZAG Y FOTOS)
+====================================================== */
+
+/* Contenedores Alternos */
+.bloque-alterno {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 70px 0;
 }
 
-.tarjeta-historia {
-    background-color: #ffffff;
-    padding: 30px;
+.bloque-alterno.img-der {
+    flex-direction: row-reverse; 
+}
+
+/* Cajas de Imagen */
+.caja-imagen {
+    flex: 1;
     border-radius: 8px;
-    border: 1px solid #e2deda;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(26, 67, 87, 0.1);
+    transition: all 0.4s ease-in-out;
+    border: 2px solid transparent; /* Prepara el espacio para que no salte al hacer hover */
 }
 
-.tarjeta-historia:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+.caja-imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4/3; 
 }
 
-.tarjeta-historia.destacado {
-    border-top: 4px solid var(--cobrizoMedioMS);
+/* Cajas de Texto */
+.caja-texto {
+    flex: 1;
 }
 
-.icono-historia {
-    font-size: 24px;
-    color: var(--cobrizoMedioMS);
-    margin-bottom: 15px;
-}
-
-.tarjeta-historia h2 {
+.caja-texto h2 {
     font-family: var(--font-bodoni);
     color: var(--azulMS);
-    font-size: 22px;
-    margin-bottom: 15px;
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
-.tarjeta-historia p {
-    font-size: 14px;
-    line-height: 1.6;
+.caja-texto p {
+    font-size: 15px;
+    line-height: 1.7;
     color: var(--grisProfundoMS);
 }
 
-/* MISIÓN Y VISIÓN */
-.seccion-mision-vision {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin: 50px 0;
+.lista-identidad {
+    list-style: none;
 }
 
-.caja-mision, .caja-vision {
-    background: var(--azulMS);
-    color: var(--marfilClaroMS);
-    padding: 35px;
-    border-radius: 8px;
+.lista-identidad li {
+    font-size: 15px;
+    color: var(--grisProfundoMS);
+    margin-bottom: 12px;
+    padding-left: 20px;
     position: relative;
-}
-
-.caja-vision {
-    background: #235269; /* Un tono sutilmente más suave para contraste */
-}
-
-.etiqueta-bloque {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--cobrizoClaroMS);
-    font-weight: 700;
-}
-
-.caja-mision h3, .caja-vision h3 {
-    font-family: var(--font-bodoni);
-    font-size: 22px;
-    margin: 10px 0 15px 0;
-    color: #ffffff;
-}
-
-.caja-mision p, .caja-vision p {
-    font-size: 14px;
-    line-height: 1.6;
-    opacity: 0.9;
-}
-
-/* VALORES */
-.seccion-valores {
-    margin-top: 50px;
-}
-
-.titulo-seccion-centrado {
-    text-align: center;
-    font-family: var(--font-bodoni);
-    color: var(--azulMS);
-    font-size: 28px;
-    margin-bottom: 35px;
-}
-
-.grilla-valores {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.item-valor {
-    text-align: center;
-    padding: 20px;
-    background: rgba(239, 225, 221, 0.3); /* Usa un toque de marfil cálido */
-    border-radius: 8px;
-}
-
-.item-valor i {
-    font-size: 28px;
-    color: var(--cobrizoMedioMS);
-    margin-bottom: 15px;
-}
-
-.item-valor h4 {
-    font-size: 16px;
-    color: var(--azulMS);
-    margin-bottom: 8px;
-}
-
-.item-valor p {
-    font-size: 13px;
     line-height: 1.5;
-    color: var(--grisProfundoMS);
 }
 
-/* ADAPTACIÓN MÓVIL */
-@media (max-width: 768px) {
-    .seccion-mision-vision {
-        grid-template-columns: 1fr;
-    }
-    .titulo-nosotros {
-        font-size: 28px;
-    }
+.lista-identidad li::before {
+    content: "■";
+    color: var(--cobrizoMedioMS);
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+    top: 3px;
 }
 
+/* Bloque Solo Texto */
+.bloque-solo-texto {
+    text-align: center;
+    margin: 70px 0;
+    padding: 50px 30px;
+    background-color: var(--marfilCalidoMS);
+    border-radius: 8px;
+    border: 2px solid #e2deda; /* Borde inicial */
+    transition: all 0.4s ease-in-out;
+}
+
+.bloque-solo-texto h2 {
+    font-family: var(--font-bodoni);
+    color: var(--azulMS);
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.descriptor-destacado {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cobrizoOscuroMS);
+    letter-spacing: 1px;
+}
+
+/* Bloque Foto Grande */
+.bloque-foto-grande {
+    margin: 70px 0;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(26, 67, 87, 0.15);
+    transition: all 0.4s ease-in-out;
+    border: 2px solid transparent;
+}
+
+/* 2. AGREGA ESTE BLOQUE NUEVO JUSTO DEBAJO (El efecto hover) */
+.caja-imagen:hover,
+.bloque-solo-texto:hover,
+.bloque-foto-grande:hover {
+    transform: translateY(-6px);
+    border-color: var(--cobrizoMedioMS);
+    box-shadow: 0 15px 30px rgba(221, 132, 98, 0.35); /* Sombra que simula el degradado luminoso */
+}
+
+.bloque-foto-grande img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ======================================================
+   SLOGAN SUPERPUESTO EN FOTO GRANDE
+====================================================== */
+.contenedor-slogan {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caja-slogan-superpuesto {
+    position: absolute;
+    background-color: rgba(26, 67, 87, 0.85); 
+    padding: 35px 50px;
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.slogan-marca-blanco {
+    font-family: var(--font-bodoni);
+    font-size: 28px;
+    font-style: italic;
+    color: var(--marfilClaroMS);
+    line-height: 1.4;
+}
 
 /* ========================= */
-/* FOOTER QUE CORTA AL FINAL */
+/* FOOTER Y BOTÓN WHATSAPP   */
 /* ========================= */
 .pie-de-pagina {
     width: 100%;
@@ -299,15 +309,93 @@ body {
     padding: 0 25px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 13px;
 }
 
-.redes-footer a { color: var(--marfilClaroMS); margin-left: 15px; text-decoration: none; }
+.redes-footer a { 
+    color: var(--marfilClaroMS); 
+    margin-left: 15px; 
+    text-decoration: none; 
+    transition: color 0.3s ease;
+}
 
-/* ADAPTACIÓN MÓVIL */
+.redes-footer a:hover {
+    color: var(--cobrizoClaroMS);
+}
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--azulMS);
+    color: #ffffff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+    background: var(--degradado-cobrizo-oficial);
+}
+
+/* ======================================================
+   ADAPTACIÓN MÓVIL (UNIFICADA)
+====================================================== */
 @media (max-width: 768px) {
-    .hero-carrusel { flex-direction: column; text-align: center; }
-    .hero-col-texto { text-align: center; }
-    .hoja-pagina { padding: 30px 20px; margin-top: 70px; }
-    .contenedor-footer { flex-direction: column; gap: 10px; text-align: center; }
+    /* Ajustes Generales de la Hoja */
+    .hoja-pagina { 
+        padding: 30px 20px; 
+        margin-top: 80px; 
+    }
+    
+    .titulo-nosotros {
+        font-size: 28px;
+    }
+    
+    /* Bloques en Zigzag */
+    .bloque-alterno, 
+    .bloque-alterno.img-der {
+        flex-direction: column; 
+        gap: 25px;
+        margin: 50px 0;
+    }
+    
+    .caja-texto h2 {
+        font-size: 24px;
+    }
+    
+    /* Ajustes de Imágenes y Slogan */
+    .bloque-foto-grande img {
+        height: 250px; 
+    }
+    
+    .caja-slogan-superpuesto {
+        width: 90%;
+        padding: 25px 20px;
+    }
+    
+    .slogan-marca-blanco {
+        font-size: 20px;
+    }
+    
+    /* Footer */
+    .contenedor-footer { 
+        flex-direction: column; 
+        gap: 10px; 
+        text-align: center; 
+    }
+    
+    .redes-footer a {
+        margin: 0 8px;
+    }
 }
