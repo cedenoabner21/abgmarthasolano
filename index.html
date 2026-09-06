@@ -59,6 +59,89 @@
         flex: 0 0 auto;
       }
 
+          @media (max-width: 1023px) {
+            header.site-header > div:first-child {
+              position: relative;
+            }
+
+            header.site-header > div:first-child > a:first-child,
+            header.site-header > div:first-child > a[href^="https://wa.me"] {
+              display: none;
+            }
+
+            .mobile-header-trigger,
+            .mobile-header-logo {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+
+            .mobile-header-trigger {
+              left: 1rem;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              width: 2.75rem;
+              height: 2.75rem;
+              padding: 0;
+              border: 0;
+              border-radius: 0.5rem;
+              background: transparent;
+              color: var(--marfilClaroMS);
+              cursor: pointer;
+            }
+
+            .mobile-header-trigger:focus-visible,
+            .mobile-header-menu a:focus-visible {
+              outline: 2px solid var(--marfilClaroMS);
+              outline-offset: 3px;
+            }
+
+            .mobile-header-logo {
+              left: 50%;
+              width: auto;
+              height: 40px;
+              transform: translate(-50%, -50%);
+            }
+
+            .mobile-header-menu {
+              position: absolute;
+              top: 100%;
+              right: 0;
+              left: 0;
+              display: none;
+              padding: 0.5rem 1rem 0.75rem;
+              background: var(--azulMS);
+              border-top: 1px solid rgb(255 255 255 / 15%);
+              box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 18%);
+            }
+
+            .mobile-header-menu[data-open="true"] {
+              display: block;
+            }
+
+            .mobile-header-menu a {
+              display: block;
+              padding: 0.75rem 0.25rem;
+              color: var(--marfilClaroMS);
+              font-size: 0.95rem;
+              font-weight: 500;
+              text-decoration: none;
+              border-bottom: 1px solid rgb(255 255 255 / 12%);
+            }
+
+            .mobile-header-menu a:last-child {
+              border-bottom: 0;
+            }
+          }
+
+          @media (min-width: 1024px) {
+            .mobile-header-trigger,
+            .mobile-header-logo,
+            .mobile-header-menu {
+              display: none;
+            }
+          }
       @media (min-width: 640px) {
         header.site-header .site-logo {
           height: 48px;
@@ -241,4 +324,50 @@ import * as route1 from "/assets/_index-DTOnHGi9.js";
 
 import("/assets/entry.client-CfhwABU6.js");</script> <!--$?--> <template id="B:0"> </template> <!--/$--> <script id="_R_">requestAnimationFrame(function(){$RT=performance.now()});</script> <div hidden id="S:0"> <script>window.__reactRouterContext.streamController.enqueue("[{\"_1\":2,\"_3\":-5,\"_4\":-5},\"loaderData\",{},\"actionData\",\"errors\"]\n");</script> <!--$?--> <template id="B:1"> </template> <!--/$--> </div> <script>$RB=[];$RV=function(a){$RT=performance.now();for(var b=0;b<a.length;b+=2){var c=a[b],e=a[b+1];null!==e.parentNode&&e.parentNode.removeChild(e);var f=c.parentNode;if(f){var g=c.previousSibling,h=0;do{if(c&&8===c.nodeType){var d=c.data;if("/$"===d||"/&"===d)if(0===h)break;else h--;else"$"!==d&&"$?"!==d&&"$~"!==d&&"$!"!==d&&"&"!==d||h++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;e.firstChild;)f.insertBefore(e.firstChild,c);g.data="$";g._reactRetry&&requestAnimationFrame(g._reactRetry)}}a.length=0};
 $RC=function(a,b){if(b=document.getElementById(b))(a=document.getElementById(a))?(a.previousSibling.data="$~",$RB.push(a,b),2===$RB.length&&("number"!==typeof $RT?requestAnimationFrame($RV.bind(null,$RB)):(a=performance.now(),setTimeout($RV.bind(null,$RB),2300>a&&2E3<a?2300-a:$RT+300-a)))):b.parentNode.removeChild(b)};$RC("B:0","S:0")</script> <div hidden id="S:1"> <script>
-window.__reactRouterContext.streamController.close();</script> </div> <script>$RC("B:1","S:1")</script> </body> </html>
+window.__reactRouterContext.streamController.close();</script> </div> <script>$RC("B:1","S:1")</script>
+    <script>
+      window.addEventListener("load", function () {
+        const header = document.querySelector("header.site-header > div:first-child");
+        const desktopNav = header && header.querySelector("nav.hidden");
+        if (!header || !desktopNav || header.querySelector(".mobile-header-trigger")) return;
+
+        const trigger = document.createElement("button");
+        trigger.type = "button";
+        trigger.className = "mobile-header-trigger";
+        trigger.setAttribute("aria-label", "Abrir menú de navegación");
+        trigger.setAttribute("aria-expanded", "false");
+        trigger.setAttribute("aria-controls", "mobile-header-menu");
+        trigger.innerHTML = '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>';
+
+        const logo = document.createElement("img");
+        logo.className = "mobile-header-logo";
+        logo.src = "logo-ms.png";
+        logo.alt = "Logotipo de Abg. Martha Solano";
+
+        const menu = document.createElement("nav");
+        menu.id = "mobile-header-menu";
+        menu.className = "mobile-header-menu";
+        menu.setAttribute("aria-label", "Navegación móvil");
+        desktopNav.querySelectorAll("a").forEach(function (link) {
+          const mobileLink = link.cloneNode(true);
+          mobileLink.className = "";
+          menu.appendChild(mobileLink);
+        });
+
+        function setMenuState(isOpen) {
+          menu.dataset.open = String(isOpen);
+          trigger.setAttribute("aria-expanded", String(isOpen));
+          trigger.setAttribute("aria-label", isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación");
+        }
+
+        trigger.addEventListener("click", function () {
+          setMenuState(menu.dataset.open !== "true");
+        });
+        menu.addEventListener("click", function (event) {
+          if (event.target.closest("a")) setMenuState(false);
+        });
+
+        header.append(trigger, logo, menu);
+      });
+    </script>
+ </body> </html>
