@@ -42,6 +42,25 @@
         --tw-shadow-color: transparent;
       }
 
+      footer a[href^="https://wa.me"] {
+        background-image: none;
+        background-color: var(--color-card);
+        color: var(--azulMS);
+        --tw-shadow-color: transparent;
+      }
+
+      footer a[href^="https://wa.me"]:hover,
+      footer a[href^="https://wa.me"]:focus-visible {
+        background-image: none;
+        background-color: var(--color-card);
+        color: var(--azulMS);
+        --tw-shadow-color: transparent;
+      }
+
+      footer a[href^="https://wa.me"] svg path {
+        fill: url("#whatsapp-copper-gradient");
+      }
+
       header.site-header {
         background-color: var(--azulMS);
         border-color: transparent;
@@ -57,6 +76,12 @@
         height: 40px;
         width: auto;
         flex: 0 0 auto;
+      }
+
+      header.site-header > div:first-child {
+        min-height: 80px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
       }
 
           @media (max-width: 1023px) {
@@ -100,7 +125,7 @@
             .mobile-header-logo {
               left: 50%;
               width: auto;
-              height: 40px;
+              height: 48px;
               transform: translate(-50%, -50%);
             }
 
@@ -325,6 +350,15 @@ import * as route1 from "/assets/_index-DTOnHGi9.js";
 import("/assets/entry.client-CfhwABU6.js");</script> <!--$?--> <template id="B:0"> </template> <!--/$--> <script id="_R_">requestAnimationFrame(function(){$RT=performance.now()});</script> <div hidden id="S:0"> <script>window.__reactRouterContext.streamController.enqueue("[{\"_1\":2,\"_3\":-5,\"_4\":-5},\"loaderData\",{},\"actionData\",\"errors\"]\n");</script> <!--$?--> <template id="B:1"> </template> <!--/$--> </div> <script>$RB=[];$RV=function(a){$RT=performance.now();for(var b=0;b<a.length;b+=2){var c=a[b],e=a[b+1];null!==e.parentNode&&e.parentNode.removeChild(e);var f=c.parentNode;if(f){var g=c.previousSibling,h=0;do{if(c&&8===c.nodeType){var d=c.data;if("/$"===d||"/&"===d)if(0===h)break;else h--;else"$"!==d&&"$?"!==d&&"$~"!==d&&"$!"!==d&&"&"!==d||h++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;e.firstChild;)f.insertBefore(e.firstChild,c);g.data="$";g._reactRetry&&requestAnimationFrame(g._reactRetry)}}a.length=0};
 $RC=function(a,b){if(b=document.getElementById(b))(a=document.getElementById(a))?(a.previousSibling.data="$~",$RB.push(a,b),2===$RB.length&&("number"!==typeof $RT?requestAnimationFrame($RV.bind(null,$RB)):(a=performance.now(),setTimeout($RV.bind(null,$RB),2300>a&&2E3<a?2300-a:$RT+300-a)))):b.parentNode.removeChild(b)};$RC("B:0","S:0")</script> <div hidden id="S:1"> <script>
 window.__reactRouterContext.streamController.close();</script> </div> <script>$RC("B:1","S:1")</script>
+    <svg aria-hidden="true" focusable="false" width="0" height="0" class="whatsapp-copper-defs">
+      <defs>
+        <linearGradient id="whatsapp-copper-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="var(--cobrizoClaroMS)"/>
+          <stop offset="50%" stop-color="var(--cobrizoMedioMS)"/>
+          <stop offset="100%" stop-color="var(--cobrizoOscuroMS)"/>
+        </linearGradient>
+      </defs>
+    </svg>
     <script>
       window.addEventListener("load", function () {
         const header = document.querySelector("header.site-header > div:first-child");
