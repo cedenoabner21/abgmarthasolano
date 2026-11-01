@@ -118,3 +118,11 @@ section {
         transition: none !important;
     }
 }
+
+/* =========================================================
+   Escala tipográfica global — ligeramente más compacta
+   Reduce todo ~6% manteniendo la proporción del diseño
+========================================================= */
+html {
+    font-size: 93.75%; /* 15px en vez de 16px */
+}
