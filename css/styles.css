@@ -1,0 +1,120 @@
+/* Ajustes globales */
+section {
+    scroll-margin-top: 90px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* Menú móvil */
+.mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.mobile-menu.is-open {
+    max-height: 500px;
+}
+
+/* Acordeón FAQ */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.faq-item.is-open .faq-answer {
+    max-height: 500px;
+    padding-top: 0;
+    padding-bottom: 1.5rem;
+}
+
+.faq-item .faq-chevron {
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq-item.is-open .faq-chevron {
+    transform: rotate(180deg);
+}
+
+/* Chips del formulario */
+.chip {
+    border-radius: 9999px;
+    border-width: 1px;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(246, 245, 242, 0.8);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.chip:hover {
+    border-color: rgba(223, 155, 136, 0.6);
+}
+
+.chip.is-selected {
+    border-color: #df9b88;
+    background-color: #df9b88;
+    color: #1a4357;
+}
+
+/* Botón flotante WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 50;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-color: #25D366;
+    color: #fff;
+    box-shadow: 0 25px 50px -12px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #1fb858;
+}
+
+/* =========================================================
+   SCROLL REVEAL — Aparecer al desplazar
+========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Nota: no usar will-change aquí para evitar sobrecarga */
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Si el usuario prefiere reducir movimiento, mostramos todo sin animar */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
