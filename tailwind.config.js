@@ -13,9 +13,8 @@ module.exports = {
                 card: '#ffffff',
             },
             fontFamily: {
-				sans: ['Montserrat', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
-				display: ['"Libre Bodoni"', 'Didot', 'Georgia', 'serif'],
-				},
+                sans: ['Montserrat', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+                display: ['"Libre Bodoni"', 'Didot', 'Georgia', 'serif'],
             },
         },
     },
