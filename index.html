@@ -45,62 +45,59 @@
     <!-- Skip link para accesibilidad -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-brand-deep focus:shadow-lg focus:rounded-md">Saltar al contenido principal</a>
 
-    <!-- ============ HEADER ============ -->
+<!-- ============ HEADER ============ -->
     <header class="sticky top-0 z-50 w-full bg-brand-deep text-cream shadow-sm">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:py-6 sm:px-6 lg:px-8 relative">
+        <!-- Hacemos el header más alto para que el logo tenga presencia -->
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8 relative">
             
-            <!-- LOGO (Izquierda) -->
+            <!-- LOGO GIGANTE (Ocupa más espacio, como en la maqueta) -->
             <a href="#" class="flex items-center shrink-0" aria-label="Inicio">
-                <img src="img/logo-ms.png" alt="Logotipo Abg. Martha Solano" class="h-12 sm:h-14 lg:h-16 w-auto object-contain" />
+                <img src="img/logo-ms.png" alt="Logotipo Abg. Martha Solano" class="h-16 sm:h-20 lg:h-24 w-auto object-contain" />
             </a>
 
-            <!-- MENÚ ESCRITORIO (Centro/Derecha) -->
+            <!-- MENÚ ESCRITORIO (Oculto en celular) -->
             <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
-                <a href="#servicios" class="text-base font-medium text-cream/90 hover:text-white transition-colors">Servicios</a>
-                <a href="#exterior" class="text-base font-medium text-cream/90 hover:text-white transition-colors">Atención a distancia</a>
-                <a href="#sobre-mi" class="text-base font-medium text-cream/90 hover:text-white transition-colors">Sobre mí</a>
-                <a href="#contacto" class="text-base font-medium text-cream/90 hover:text-white transition-colors">Contacto</a>
+                <a href="#servicios" class="text-lg font-medium text-cream/90 hover:text-white transition-colors">Servicios</a>
+                <a href="#exterior" class="text-lg font-medium text-cream/90 hover:text-white transition-colors">Atención a distancia</a>
+                <a href="#sobre-mi" class="text-lg font-medium text-cream/90 hover:text-white transition-colors">Sobre mí</a>
+                <a href="#contacto" class="text-lg font-medium text-cream/90 hover:text-white transition-colors">Contacto</a>
             </nav>
 
-            <!-- BOTÓN CTA ESCRITORIO -->
-            <a href="#contacto" class="hidden md:inline-flex items-center justify-center rounded-md bg-white px-6 py-2.5 text-base font-semibold text-brand-deep shadow-sm transition-all duration-300 hover:bg-cream hover:shadow-md">
+            <!-- BOTÓN CTA ESCRITORIO (Oculto en celular) -->
+            <a href="#contacto" class="hidden md:inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-lg font-semibold text-brand-deep shadow-sm transition-all duration-300 hover:bg-cream hover:shadow-md">
                 Solicitar una consulta
             </a>
 
-            <!-- BOTÓN HAMBURGUESA (Móvil, a la derecha) -->
-            <button id="mobile-menu-trigger" type="button" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-cream hover:bg-white/10 transition-colors z-50" aria-label="Abrir menú" aria-expanded="false">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
+            <!-- BOTÓN HAMBURGUESA GIGANTE (Derecha, visible solo en celular) -->
+            <button id="mobile-menu-trigger" type="button" class="md:hidden flex items-center justify-center w-12 h-12 rounded-lg text-cream hover:bg-white/10 transition-colors z-50" aria-label="Abrir menú" aria-expanded="false">
+                <!-- Rayitas más gruesas y grandes -->
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
         </div>
 
         <!-- MENÚ DESPLEGABLE MÓVIL -->
         <nav id="mobile-menu" class="mobile-menu md:hidden bg-brand-deep absolute top-full left-0 w-full border-t border-white/10 shadow-xl" aria-label="Navegación móvil">
             <div class="px-4 py-4 flex flex-col gap-2">
-                <a href="#servicios" class="block px-4 py-3 rounded-lg text-base font-medium text-cream/90 hover:bg-white/5">Servicios</a>
-                <a href="#exterior" class="block px-4 py-3 rounded-lg text-base font-medium text-cream/90 hover:bg-white/5">Atención a distancia</a>
-                <a href="#sobre-mi" class="block px-4 py-3 rounded-lg text-base font-medium text-cream/90 hover:bg-white/5">Sobre mí</a>
-                <a href="#contacto" class="block px-4 py-3 rounded-lg text-base font-medium text-cream/90 hover:bg-white/5">Contacto</a>
-                <a href="#contacto" class="mt-2 block text-center rounded-md bg-white px-4 py-3 text-base font-semibold text-brand-deep">Solicitar una consulta</a>
+                <a href="#servicios" class="block px-4 py-4 rounded-lg text-lg font-medium text-cream/90 hover:bg-white/5">Servicios</a>
+                <a href="#exterior" class="block px-4 py-4 rounded-lg text-lg font-medium text-cream/90 hover:bg-white/5">Atención a distancia</a>
+                <a href="#sobre-mi" class="block px-4 py-4 rounded-lg text-lg font-medium text-cream/90 hover:bg-white/5">Sobre mí</a>
+                <a href="#contacto" class="block px-4 py-4 rounded-lg text-lg font-medium text-cream/90 hover:bg-white/5">Contacto</a>
+                <a href="#contacto" class="mt-2 block text-center rounded-md bg-white px-4 py-4 text-lg font-semibold text-brand-deep">Solicitar una consulta</a>
             </div>
         </nav>
     </header>
 
-    <main id="main-content">
-        
-<!-- ============ HERO (Idéntico a la maqueta) ============ -->
+    <!-- ============ HERO (Ajustado a la maqueta) ============ -->
     <section class="relative bg-cream w-full overflow-hidden">
-        <!-- Contenedor principal: Quitamos el "gap" para que todo esté pegado -->
         <div class="mx-auto max-w-7xl lg:px-8 flex flex-col md:flex-row items-stretch">
             
-            <!-- 1. TEXTOS -->
-            <!-- Quitamos el padding inferior (pb-0) para que la foto suba y se pegue al texto -->
+            <!-- TEXTOS: Aumentamos un poco el tamaño y peso para darle presencia -->
             <div class="w-full md:w-1/2 text-left pt-8 pb-0 md:py-20 px-6 md:px-0 reveal z-20 md:flex md:flex-col md:justify-center">
-                <!-- Redujimos un poco el tamaño del título -->
-                <h1 class="text-[2.2rem] sm:text-4xl lg:text-[3.5rem] font-display font-medium text-brand-deep mb-3 leading-[1.15]">
+                <h1 class="text-4xl sm:text-5xl lg:text-[3.8rem] font-display font-medium text-brand-deep mb-4 leading-[1.1]">
                     Organice y proteja su patrimonio.
                 </h1>
-                <p class="text-xl sm:text-2xl font-bold text-brand-deep mb-1">Abg. Martha Solano</p>
-                <p class="text-base sm:text-lg text-brand-deep/70 font-light">Abogada Familiar y Patrimonial</p>
+                <p class="text-2xl sm:text-3xl font-bold text-brand-deep mb-2">Abg. Martha Solano</p>
+                <p class="text-lg sm:text-xl text-brand-deep/80 font-medium">Abogada Familiar y Patrimonial</p>
                 
                 <!-- Texto extra (Solo PC) -->
                 <p class="text-lg text-brand-deep/90 leading-relaxed mt-6 mb-8 hidden md:block max-w-lg">
@@ -113,32 +110,31 @@
                 </a>
             </div>
 
-            <!-- 2. FOTO Y BOTÓN MONTADO -->
-            <div class="w-full md:w-1/2 reveal relative flex flex-col justify-end">
+            <!-- FOTO: Forzamos el encuadre y la hacemos más alta -->
+            <div class="w-full md:w-1/2 reveal relative flex flex-col justify-end mt-4 md:mt-0">
                 
-                <!-- Contenedor de la foto -->
-                <div class="relative w-full h-[380px] sm:h-[450px] md:h-full md:max-w-md md:mx-auto md:rounded-[2rem] overflow-hidden md:shadow-xl">
+                <!-- Contenedor: Forzamos más altura en celular (h-[450px]) -->
+                <div class="relative w-full h-[450px] sm:h-[550px] md:h-full md:max-w-md md:mx-auto md:rounded-[2rem] overflow-hidden md:shadow-xl">
                     
-                    <!-- La foto -->
-                    <img src="img/hero.jpeg" alt="Abogada Martha Solano" class="absolute inset-0 w-full h-full object-cover object-top md:object-center" />
+                    <!-- LA FOTO: object-top fuerza a que se vea la cara. object-cover llena el espacio -->
+                    <img src="img/hero.jpeg" alt="Abogada Martha Solano" class="absolute inset-0 w-full h-full object-cover object-top" />
                     
-                    <!-- EL TRUCO DEL DIFUMINADO: Hacemos que el degradado superior sea largo (h-32) para que se funda con el texto -->
-                    <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-cream to-transparent z-10 pointer-events-none"></div>
+                    <!-- Difuminado superior (Se funde con el texto) -->
+                    <div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-cream to-transparent z-10 pointer-events-none"></div>
                     
-                    <!-- Difuminado inferior para el botón -->
+                    <!-- Difuminado inferior (Para que el botón no toque la orilla) -->
                     <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-cream via-cream/80 to-transparent z-10 pointer-events-none"></div>
 
                     <!-- Botón flotante (Solo celular) -->
-                    <!-- Hacemos el botón más pequeño (w-[90%], mx-auto) para que no toque los bordes -->
-                    <div class="absolute bottom-6 left-0 w-full z-20 md:hidden flex flex-col items-center">
-                        <a href="#contacto" class="flex items-center justify-center w-[90%] max-w-xs rounded-lg bg-brand-deep px-4 py-3 text-base font-medium text-white shadow-lg">
-                            Solicitar una consulta <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <div class="absolute bottom-8 left-0 w-full z-20 md:hidden flex justify-center">
+                        <a href="#contacto" class="flex items-center justify-center w-[85%] rounded-lg bg-brand-deep px-6 py-4 text-lg font-semibold text-white shadow-xl">
+                            Solicitar una consulta <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
                     </div>
                 </div>
 
                 <!-- Texto debajo del botón -->
-                <p class="text-xs text-brand-deep/60 mt-3 mb-8 text-center md:hidden">Presencial o virtual, previa cita.</p>
+                <p class="text-sm font-medium text-brand-deep/70 mt-3 mb-8 text-center md:hidden">Presencial o virtual, previa cita.</p>
             </div>
 
         </div>
