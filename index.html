@@ -87,77 +87,52 @@
 
     <main id="main-content">
         
-        <!-- ============ HERO ============ -->
-        <section class="relative bg-cream overflow-hidden">
-            <div class="mx-auto max-w-[1400px] w-full flex flex-col md:flex-row items-stretch">
+        <!-- ============ HERO (Idéntico a la maqueta de tu mamá) ============ -->
+        <section class="relative bg-cream overflow-hidden py-12 md:py-20">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row items-center gap-10 md:gap-16">
                 
-                <!-- Texto -->
-                <div class="w-full md:w-[55%] flex flex-col justify-center px-6 pt-10 pb-6 md:px-16 md:py-24 z-10">
-                    <div class="reveal text-center md:text-left">
+                <!-- Texto (Arriba en celular, Izquierda en PC) -->
+                <div class="w-full md:w-1/2 text-center md:text-left reveal z-10">
+                    <!-- Tamaño de texto reducido solo para celular (text-3xl sm:text-5xl) -->
+                    <h1 class="text-3xl sm:text-5xl font-display font-medium text-brand-deep mb-4 leading-[1.15]">
+                        Organice y proteja su patrimonio.
+                    </h1>
+                    <!-- Textos secundarios un poquito más pequeños en móvil -->
+                    <p class="text-lg sm:text-xl font-bold text-brand-deep">Abg. Martha Solano</p>
+                    <p class="text-base sm:text-lg text-brand-deep/80 mb-6">Abogada Familiar y Patrimonial</p>
+                    
+                    <!-- Texto extra (Solo PC) -->
+                    <p class="text-lg text-brand-deep/90 leading-relaxed mb-8 font-light hidden md:block">
+                        Herencias, escrituras y regularización de propiedades, con negociación estratégica y seguimiento claro.
+                    </p>
+
+                    <!-- Botón (Solo PC) -->
+                    <a href="#contacto" class="hidden md:inline-flex items-center gap-3 rounded-xl bg-brand-deep px-8 py-3.5 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:bg-ink w-fit">
+                        Solicitar una consulta <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Foto (Tarjeta de presentación) -->
+                <div class="w-full md:w-1/2 reveal flex flex-col items-center relative -mt-6 md:mt-0">
+                    
+                    <!-- Contenedor de la foto con el marco -->
+                    <div class="bg-sand p-3 sm:p-4 rounded-[2rem] shadow-xl w-full max-w-sm md:max-w-md relative">
+                        <!-- Imagen -->
+                        <img src="img/hero.jpeg" alt="Abogada Martha Solano" class="w-full h-auto object-cover rounded-[1.5rem] relative z-0" />
                         
-                        <!-- VERSIÓN ESCRITORIO (Oculta en celular) -->
-                        <div class="hidden md:block">
-                            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-plum mb-3">ABG. MARTHA SOLANO</p>
-                            <div class="w-16 h-px bg-plum/50 mb-6"></div>
-                            <p class="text-xl text-brand-deep/80 font-light mb-4">Abogada Familiar y Patrimonial</p>
-                            
-                            <h1 class="text-4xl sm:text-5xl md:text-4xl lg:text-[3.5rem] font-display font-medium leading-[1.1] text-brand-deep mb-6">
-                                Dirección jurídica para organizar y proteger su patrimonio.
-                            </h1>
+                        <!-- EL TRUCO DEL DIFUMINADO: Un degradado de crema a transparente en la parte superior -->
+                        <div class="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-cream to-transparent z-10 pointer-events-none rounded-t-[2rem]"></div>
+                    </div>
 
-                            <p class="text-lg md:text-base lg:text-lg text-brand-deep/90 leading-relaxed max-w-lg mb-8 font-light">
-                                Herencias, escrituras y regularización de propiedades, con negociación estratégica y seguimiento claro.
-                            </p>
-
-                            <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-plum to-gold px-8 py-3.5 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-plum/30 w-fit mb-8 group">
-                                Solicitar una consulta
-                                <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </a>
-
-                            <div class="flex flex-wrap items-center gap-6 text-base text-brand-deep/80 mb-8">
-                                <div class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-plum" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                    <span>Presencial en Santo Domingo</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <svg class="w-5 h-5 text-plum" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    <span>Atención a distancia</span>
-                                </div>
-                            </div>
-
-                            <p class="font-display italic text-plum text-xl sm:text-2xl">Confianza para decidir. Estrategia para proteger.</p>
-                        </div>
-
-                        <!-- VERSIÓN CELULAR (Exactamente como la imagen) -->
-                        <div class="block md:hidden">
-                            <h1 class="text-[2.6rem] font-display font-medium leading-[1.1] text-brand-deep mb-6 mt-2">
-                                Organice y proteja su patrimonio.
-                            </h1>
-                            <p class="text-xl font-bold text-brand-deep mb-1">Abg. Martha Solano</p>
-                            <p class="text-base text-brand-deep/70 mb-4">Abogada Familiar y Patrimonial</p>
-                        </div>
+                    <!-- Botón (Solo Celular, justo debajo de la foto) -->
+                    <div class="mt-8 w-full max-w-sm md:hidden z-20">
+                        <a href="#contacto" class="flex items-center justify-center w-full rounded-xl bg-brand-deep px-8 py-4 text-base sm:text-lg font-medium text-white shadow-lg transition-all duration-300">
+                            Solicitar una consulta <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                        <p class="text-sm text-brand-deep/60 mt-4 text-center">Presencial o virtual, previa cita.</p>
                     </div>
                 </div>
 
-                <!-- Foto con efecto de tarjeta en celular -->
-                <div class="w-full md:w-[45%] relative reveal mt-2 md:mt-0 pb-10 md:pb-0">
-                    <div class="relative w-full h-[450px] md:h-full overflow-hidden">
-                        <!-- La foto -->
-                        <img src="img/hero.jpeg" alt="Abogada Martha Solano en su oficina" class="w-full h-full object-cover object-top md:object-center" />
-                        
-                        <!-- Degradado difuminado (Solo celular) -->
-                        <div class="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-cream via-cream/90 to-transparent md:hidden"></div>
-
-                        <!-- Botón y texto superpuestos (Solo celular) -->
-                        <div class="absolute inset-x-0 bottom-6 flex flex-col items-center md:hidden z-20">
-                            <a href="#contacto" class="inline-flex items-center justify-center gap-2 rounded-md bg-brand-deep px-8 py-3.5 text-base font-semibold text-white shadow-xl transition-all duration-300 hover:bg-ink">
-                                Solicitar una consulta
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </a>
-                            <p class="text-sm text-brand-deep/70 mt-3 font-medium">Presencial o virtual, previa cita.</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
