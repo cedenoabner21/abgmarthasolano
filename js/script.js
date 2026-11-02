@@ -18,8 +18,7 @@ function buildFormMessage({ nombre, ubicacion, area, documentos, descripcion }) 
     const safeUbicacion = ubicacion || '[su ubicación]';
     const safeArea = area || '[área de la consulta]';
     const safeDocumentos = documentos || '[indique si cuenta con documentos]';
-    const safeDescripcion =
-        (descripcion && descripcion.trim()) || '[Breve descripción de lo que necesita resolver]';
+    const safeDescripcion = (descripcion && descripcion.trim()) || '[Breve descripción de lo que necesita resolver]';
 
     return [
         'Hola, Abg. Martha Solano.',
@@ -104,11 +103,7 @@ function initForm() {
     const form = document.getElementById('form-calificacion');
     if (!form) return;
 
-    const state = {
-        ubicacion: '',
-        area: '',
-        documentos: '',
-    };
+    const state = { ubicacion: '', area: '', documentos: '' };
 
     form.addEventListener('click', (e) => {
         const chip = e.target.closest('.chip');
@@ -129,7 +124,6 @@ function initForm() {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-
         const nombre = document.getElementById('nombre').value;
         const descripcion = document.getElementById('descripcion').value;
 
@@ -149,7 +143,7 @@ function initForm() {
    SCROLL REVEAL — Aparecer al desplazar
 ========================================================= */
 function initScrollReveal() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // ⚠️ Ya NO verificamos prefers-reduced-motion para que siempre se vea
     if (!('IntersectionObserver' in window)) return;
 
     const selectors = [
@@ -208,16 +202,13 @@ function initScrollReveal() {
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.05,
-        rootMargin: '0px 0px -40px 0px',
-    });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
     finalTargets.forEach(el => observer.observe(el));
 }
 
 /* =========================================================
-   SMOOTH SCROLL — Sin Lenis, usa scroll nativo
+   SMOOTH SCROLL — Animación JS personalizada (Estilo Apple)
 ========================================================= */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -232,15 +223,34 @@ function initSmoothScroll() {
 
             const header = document.querySelector('header');
             const headerHeight = header ? header.offsetHeight : 0;
+            const startPosition = window.pageYOffset;
+            const targetPosition = targetElement.getBoundingClientRect().top + startPosition - headerHeight - 20;
+            const distance = targetPosition - startPosition;
+            
+            // Duración de la animación: 800ms
+            const duration = 800;
+            let startTime = null;
 
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+            // Función de aceleración (entra rápido, frena suave)
+            function easeInOutCubic(t) {
+                return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+                
+                window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
 
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                }
+            }
+
+            requestAnimationFrame(animation);
+
+            // Cierra el menú móvil si estaba abierto
             const mobileMenu = document.getElementById('mobile-menu');
             const trigger = document.getElementById('mobile-menu-trigger');
             if (mobileMenu && mobileMenu.classList.contains('is-open')) {

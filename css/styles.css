@@ -3,24 +3,15 @@
 ========================================================= */
 html {
     scroll-behavior: smooth;
-    font-size: 90%; /* Achica todo un 10% manteniendo proporciones */
+    font-size: 90%;
 }
 
 section[id] {
-    scroll-margin-top: 110px; /* Respaldo por si el JS tarda en cargar */
+    scroll-margin-top: 110px;
 }
-
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-    }
-}
-
 
 /* =========================================================
-   SCROLL REVEAL — Efecto de aparición al hacer scroll
+   SCROLL REVEAL — Efecto de aparición
 ========================================================= */
 .reveal {
     opacity: 0;
@@ -34,15 +25,6 @@ section[id] {
     opacity: 1;
     transform: translateY(0);
 }
-
-@media (prefers-reduced-motion: reduce) {
-    .reveal {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-    }
-}
-
 
 /* =========================================================
    MENÚ MÓVIL
