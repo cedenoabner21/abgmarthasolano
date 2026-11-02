@@ -83,14 +83,12 @@ function initFAQ() {
         button.addEventListener('click', () => {
             const isOpen = item.classList.contains('is-open');
 
-            // Cierra todos
             items.forEach((other) => {
                 other.classList.remove('is-open');
                 const btn = other.querySelector('.faq-button');
                 if (btn) btn.setAttribute('aria-expanded', 'false');
             });
 
-            // Abre el actual si estaba cerrado
             if (!isOpen) {
                 item.classList.add('is-open');
                 button.setAttribute('aria-expanded', 'true');
@@ -106,14 +104,12 @@ function initForm() {
     const form = document.getElementById('form-calificacion');
     if (!form) return;
 
-    // Estado de cada grupo
     const state = {
         ubicacion: '',
         area: '',
         documentos: '',
     };
 
-    // Delegación de clics en chips
     form.addEventListener('click', (e) => {
         const chip = e.target.closest('.chip');
         if (!chip) return;
@@ -121,19 +117,16 @@ function initForm() {
         const group = chip.dataset.group;
         if (!group) return;
 
-        // Quita selección del grupo
         form.querySelectorAll(`.chip[data-group="${group}"]`).forEach((c) => {
             c.classList.remove('is-selected');
             c.setAttribute('aria-pressed', 'false');
         });
 
-        // Selecciona el chip actual
         chip.classList.add('is-selected');
         chip.setAttribute('aria-pressed', 'true');
         state[group] = chip.dataset.value;
     });
 
-    // Submit
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -156,19 +149,16 @@ function initForm() {
    SCROLL REVEAL — Aparecer al desplazar
 ========================================================= */
 function initScrollReveal() {
-    // 1. Si el usuario prefiere reducir movimiento, no animamos
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    // 2. Si el navegador no soporta IntersectionObserver, no hacemos nada
     if (!('IntersectionObserver' in window)) return;
 
-    // 3. Selectores de los elementos que van a animarse
-    const selector = [
+    const selectors = [
         'main section h1',
         'main section h2',
         'main section h3',
-        'main section blockquote',
         'main section p',
+        'main section blockquote',
+        'main section img',
         'main section .grid > *',
         'main section .space-y-10 > *',
         'main section .space-y-14 > *',
@@ -178,15 +168,16 @@ function initScrollReveal() {
         'main section form > p',
         'main section a[data-whatsapp="general"]',
         'footer .grid > *',
-    ].join(',');
+    ];
 
-    // 4. Recogemos todos los candidatos y respetamos data-reveal="off"
-    const candidates = Array.from(document.querySelectorAll(selector))
-        .filter(el => el.dataset.reveal !== 'off' && !el.closest('[data-reveal="off"]'));
+    const elements = new Set();
+    selectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach(el => elements.add(el));
+    });
 
-    // 5. Filtramos elementos anidados (si un padre ya es target, el hijo no lo es)
-    const targetSet = new Set(candidates);
-    const finalTargets = candidates.filter(el => {
+    const allElements = Array.from(elements);
+    const targetSet = new Set(allElements);
+    const finalTargets = allElements.filter(el => {
         let parent = el.parentElement;
         while (parent) {
             if (targetSet.has(parent)) return false;
@@ -195,10 +186,8 @@ function initScrollReveal() {
         return true;
     });
 
-    // 6. Añadimos la clase .reveal a cada elemento
     finalTargets.forEach(el => el.classList.add('reveal'));
 
-    // 7. Aplicamos stagger (retraso escalonado) a hermanos que comparten padre
     const parentMap = new Map();
     finalTargets.forEach(el => {
         const parent = el.parentElement;
@@ -208,11 +197,10 @@ function initScrollReveal() {
     parentMap.forEach(children => {
         if (children.length < 2) return;
         children.forEach((child, i) => {
-            child.style.transitionDelay = `${Math.min(i * 80, 400)}ms`;
+            child.style.transitionDelay = `${Math.min(i * 100, 500)}ms`;
         });
     });
 
-    // 8. Observamos con IntersectionObserver
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -221,11 +209,46 @@ function initScrollReveal() {
             }
         });
     }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -60px 0px',
+        threshold: 0.05,
+        rootMargin: '0px 0px -40px 0px',
     });
 
     finalTargets.forEach(el => observer.observe(el));
+}
+
+/* =========================================================
+   SMOOTH SCROLL — Sin Lenis, usa scroll nativo
+========================================================= */
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (!targetId || targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) return;
+
+            e.preventDefault();
+
+            const header = document.querySelector('header');
+            const headerHeight = header ? header.offsetHeight : 0;
+
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            const mobileMenu = document.getElementById('mobile-menu');
+            const trigger = document.getElementById('mobile-menu-trigger');
+            if (mobileMenu && mobileMenu.classList.contains('is-open')) {
+                mobileMenu.classList.remove('is-open');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
 }
 
 /* =========================================================
@@ -236,8 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initFAQ();
     initForm();
     initScrollReveal();
+    initSmoothScroll();
 
-    // Marca todos los enlaces a WhatsApp con mensaje general por defecto
     document.querySelectorAll('a[data-whatsapp="general"]').forEach((link) => {
         link.href = buildWhatsAppURL(GENERAL_MESSAGE);
     });

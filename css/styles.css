@@ -1,6 +1,13 @@
-/* Ajustes globales */
-section {
-    scroll-margin-top: 90px;
+/* =========================================================
+   AJUSTES GLOBALES
+========================================================= */
+html {
+    scroll-behavior: smooth;
+    font-size: 90%; /* Achica todo un 10% manteniendo proporciones */
+}
+
+section[id] {
+    scroll-margin-top: 110px; /* Respaldo por si el JS tarda en cargar */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -11,18 +18,47 @@ section {
     }
 }
 
-/* Menú móvil */
+
+/* =========================================================
+   SCROLL REVEAL — Efecto de aparición al hacer scroll
+========================================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 
+        opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* =========================================================
+   MENÚ MÓVIL
+========================================================= */
 .mobile-menu {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-in-out;
 }
-
 .mobile-menu.is-open {
     max-height: 500px;
 }
 
-/* Acordeón FAQ */
+/* =========================================================
+   ACORDEÓN FAQ
+========================================================= */
 .faq-answer {
     max-height: 0;
     overflow: hidden;
@@ -30,22 +66,21 @@ section {
     padding-top: 0;
     padding-bottom: 0;
 }
-
 .faq-item.is-open .faq-answer {
     max-height: 500px;
     padding-top: 0;
     padding-bottom: 1.5rem;
 }
-
 .faq-item .faq-chevron {
     transition: transform 0.3s ease-in-out;
 }
-
 .faq-item.is-open .faq-chevron {
     transform: rotate(180deg);
 }
 
-/* Chips del formulario */
+/* =========================================================
+   CHIPS DEL FORMULARIO
+========================================================= */
 .chip {
     border-radius: 9999px;
     border-width: 1px;
@@ -58,18 +93,18 @@ section {
     background-color: transparent;
     cursor: pointer;
 }
-
 .chip:hover {
     border-color: rgba(223, 155, 136, 0.6);
 }
-
 .chip.is-selected {
     border-color: #df9b88;
     background-color: #df9b88;
     color: #1a4357;
 }
 
-/* Botón flotante WhatsApp */
+/* =========================================================
+   BOTÓN FLOTANTE WHATSAPP
+========================================================= */
 .whatsapp-float {
     position: fixed;
     bottom: 1.25rem;
@@ -86,43 +121,7 @@ section {
     box-shadow: 0 25px 50px -12px rgba(37, 211, 102, 0.4);
     transition: all 0.3s;
 }
-
 .whatsapp-float:hover {
     transform: scale(1.1);
     background-color: #1fb858;
-}
-
-/* =========================================================
-   SCROLL REVEAL — Aparecer al desplazar
-========================================================= */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition:
-        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    /* Nota: no usar will-change aquí para evitar sobrecarga */
-}
-
-.reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Si el usuario prefiere reducir movimiento, mostramos todo sin animar */
-@media (prefers-reduced-motion: reduce) {
-    .reveal {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-    }
-}
-
-/* =========================================================
-   Escala tipográfica global — ligeramente más compacta
-   Reduce todo ~6% manteniendo la proporción del diseño
-========================================================= */
-html {
-    font-size: 93.75%; /* 15px en vez de 16px */
 }
