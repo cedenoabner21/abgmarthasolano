@@ -60,14 +60,12 @@ function initFAQ() {
         button.addEventListener('click', () => {
             const isOpen = item.classList.contains('is-open');
 
-            // Cierra todos los demás
             items.forEach((other) => {
                 other.classList.remove('is-open');
                 const btn = other.querySelector('.faq-button');
                 if (btn) btn.setAttribute('aria-expanded', 'false');
             });
 
-            // Abre el actual si estaba cerrado
             if (!isOpen) {
                 item.classList.add('is-open');
                 button.setAttribute('aria-expanded', 'true');
@@ -77,7 +75,7 @@ function initFAQ() {
 }
 
 /* =========================================================
-   FORMULARIO DE CALIFICACIÓN (Nuevo diseño)
+   FORMULARIO DE CALIFICACIÓN
 ========================================================= */
 function initForm() {
     const form = document.getElementById('form-calificacion');
@@ -86,19 +84,16 @@ function initForm() {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // Capturamos los valores del nuevo formulario
         const nombre = document.getElementById('nombre').value.trim();
         const ubicacion = document.getElementById('ubicacion').value.trim();
         const area = document.getElementById('area').value;
         const descripcion = document.getElementById('descripcion').value.trim();
 
-        // Validación súper básica
         if (!nombre) {
             alert('Por favor, ingrese su nombre.');
             return;
         }
 
-        // Construimos el mensaje con formato limpio
         const message = [
             'Hola, Abg. Martha Solano.',
             '',
@@ -117,19 +112,14 @@ function initForm() {
 }
 
 /* =========================================================
-   SCROLL REVEAL — Aparecer al desplazar
+   SCROLL REVEAL
 ========================================================= */
 function initScrollReveal() {
-    // (Sin bloqueo de prefers-reduced-motion para garantizar que se vea)
     if (!('IntersectionObserver' in window)) return;
 
-    // En el nuevo HTML ya pusimos la clase .reveal directamente a los contenedores, 
-    // así que solo necesitamos el observer.
     const targets = document.querySelectorAll('.reveal');
-
     if (targets.length === 0) return;
 
-    // Stagger (retraso) para elementos hermanos
     const parentMap = new Map();
     targets.forEach(el => {
         const parent = el.parentElement;
@@ -156,7 +146,7 @@ function initScrollReveal() {
 }
 
 /* =========================================================
-   SMOOTH SCROLL — Desplazamiento suave
+   SMOOTH SCROLL
 ========================================================= */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -173,8 +163,8 @@ function initSmoothScroll() {
             const headerHeight = header ? header.offsetHeight : 0;
             const startPosition = window.pageYOffset;
             
-            // Ajuste: Restamos 60px (antes eran 20px) para que el título quede bien abajo del header
-            const targetPosition = targetElement.getBoundingClientRect().top + startPosition - headerHeight - 60;
+            // AQUÍ ESTÁ EL ARREGLO: Solo restamos la altura del header. Sin +/- extra.
+            const targetPosition = targetElement.getBoundingClientRect().top + startPosition - headerHeight;
             
             const distance = targetPosition - startPosition;
             const duration = 800;
@@ -198,7 +188,7 @@ function initSmoothScroll() {
 
             requestAnimationFrame(animation);
 
-            // Cierra el menú móvil
+            // Cierra el menú móvil si está abierto
             const mobileMenu = document.getElementById('mobile-menu');
             const trigger = document.getElementById('mobile-menu-trigger');
             if (mobileMenu && mobileMenu.classList.contains('is-open')) {
@@ -219,7 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initSmoothScroll();
 
-    // Actualiza los links estáticos de WhatsApp
     document.querySelectorAll('a[data-whatsapp="general"]').forEach((link) => {
         link.href = buildWhatsAppURL(GENERAL_MESSAGE);
     });

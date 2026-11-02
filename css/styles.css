@@ -3,7 +3,7 @@
 ========================================================= */
 html {
     scroll-behavior: smooth;
-    font-size: 95%; /* Tamaño ligeramente más compacto para encajar mejor */
+    font-size: 95%;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
 }
 
 section[id] {
-    scroll-margin-top: 130px; /* Aumentado para que el título respire mejor */
+    scroll-margin-top: 85px; /* Ajuste exacto a la altura del menú */
 }
 
 /* =========================================================
@@ -43,7 +43,7 @@ section[id] {
 }
 
 /* =========================================================
-   ACORDEÓN FAQ (Adaptado al nuevo diseño)
+   ACORDEÓN FAQ
 ========================================================= */
 .faq-answer {
     max-height: 0;
@@ -55,7 +55,6 @@ section[id] {
     max-height: 300px;
 }
 
-/* El ícono de "+" se convierte en "x" al abrir */
 .faq-item.is-open .faq-chevron {
     transform: rotate(45deg);
 }
