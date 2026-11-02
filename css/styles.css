@@ -1,9 +1,9 @@
 /* =========================================================
-   AJUSTES GLOBALES
+   AJUSTES GLOBALES DE ACCESIBILIDAD
 ========================================================= */
 html {
     scroll-behavior: smooth;
-    font-size: 95%;
+    font-size: 100%; /* Tamaño base restaurado para buena lectura */
 }
 
 body {
@@ -11,7 +11,14 @@ body {
 }
 
 section[id] {
-    scroll-margin-top: 85px; /* Ajuste exacto a la altura del menú */
+    scroll-margin-top: 85px;
+}
+
+/* Foco visible para navegación con teclado */
+*:focus-visible {
+    outline: 2px solid #DD8462;
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 /* =========================================================
