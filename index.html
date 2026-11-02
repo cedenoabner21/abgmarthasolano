@@ -87,57 +87,61 @@
 
     <main id="main-content">
         
-        <!-- ============ HERO (Idéntico a la maqueta) ============ -->
-        <section class="relative bg-cream overflow-hidden pt-10 pb-16 md:py-20">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8 md:gap-16">
+    <!-- ============ HERO (Idéntico a la maqueta) ============ -->
+    <section class="relative bg-cream pt-8 pb-12 md:py-20 overflow-hidden">
+        <!-- Quitamos el padding lateral (px-6) del contenedor principal para que la foto llegue a los bordes en celular -->
+        <div class="mx-auto max-w-7xl md:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-6 md:gap-16">
+            
+            <!-- TEXTOS -->
+            <!-- Alineados a la izquierda en celular, como en la maqueta -->
+            <div class="w-full md:w-1/2 text-left px-6 md:px-0 reveal z-10">
+                <h1 class="text-[2.4rem] sm:text-5xl lg:text-[3.5rem] font-display font-medium text-brand-deep mb-3 leading-[1.15]">
+                    Organice y proteja su patrimonio.
+                </h1>
+                <p class="text-xl sm:text-2xl font-bold text-brand-deep mb-1">Abg. Martha Solano</p>
+                <p class="text-lg sm:text-xl text-brand-deep/70 mb-8 font-light">Abogada Familiar y Patrimonial</p>
                 
-                <!-- Texto (Arriba en celular, Izquierda en PC) -->
-                <div class="w-full md:w-1/2 text-center md:text-left reveal z-10">
-                    <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] font-display font-medium text-brand-deep mb-4 leading-[1.1]">
-                        Organice y proteja su patrimonio.
-                    </h1>
-                    <p class="text-xl sm:text-2xl font-bold text-brand-deep mb-1">Abg. Martha Solano</p>
-                    <p class="text-lg sm:text-xl text-brand-deep/70 mb-8 font-light">Abogada Familiar y Patrimonial</p>
-                    
-                    <!-- Texto extra (Solo PC) -->
-                    <p class="text-lg text-brand-deep/90 leading-relaxed mb-8 hidden md:block max-w-lg">
-                        Herencias, escrituras y regularización de propiedades, con negociación estratégica y seguimiento claro.
-                    </p>
+                <!-- Texto extra (Solo PC) -->
+                <p class="text-lg text-brand-deep/90 leading-relaxed mb-8 hidden md:block max-w-lg">
+                    Herencias, escrituras y regularización de propiedades, con negociación estratégica y seguimiento claro.
+                </p>
 
-                    <!-- Botón (Solo PC) -->
-                    <a href="#contacto" class="hidden md:inline-flex items-center gap-3 rounded-xl bg-brand-deep px-8 py-4 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:bg-ink w-fit">
-                        Solicitar una consulta <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
-                </div>
-
-                <!-- FOTO CON DIFUMINADO (Sin marco, tal cual la maqueta) -->
-                <div class="w-full md:w-1/2 reveal flex flex-col items-center">
-                    
-                    <!-- Contenedor de la foto -->
-                    <div class="relative w-full max-w-sm md:max-w-md mx-auto">
-                        <!-- Imagen original -->
-                        <img src="img/hero.jpeg" alt="Abogada Martha Solano" class="w-full h-auto object-cover object-center block rounded-t-[2rem]" />
-                        
-                        <!-- Difuminado superior (Muy sutil, h-16 para no tapar la cara) -->
-                        <div class="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-cream to-transparent z-10 pointer-events-none rounded-t-[2rem]"></div>
-
-                        <!-- Difuminado inferior (Más alto, se funde con el fondo) -->
-                        <div class="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-cream via-cream/80 to-transparent z-10 pointer-events-none"></div>
-
-                        <!-- Botón superpuesto (Solo Celular) -->
-                        <div class="absolute bottom-6 left-0 w-full px-6 z-20 md:hidden">
-                            <a href="#contacto" class="flex items-center justify-center w-full rounded-xl bg-brand-deep px-4 py-4 text-base font-semibold text-white shadow-xl transition-all duration-300">
-                                Solicitar una consulta <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Texto debajo de la foto (Solo Celular) -->
-                    <p class="text-sm sm:text-base text-brand-deep/60 mt-4 text-center md:hidden">Presencial o virtual, previa cita.</p>
-                </div>
-
+                <!-- Botón (Solo PC) -->
+                <a href="#contacto" class="hidden md:inline-flex items-center gap-3 rounded-lg bg-brand-deep px-8 py-4 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:bg-ink w-fit">
+                    Solicitar una consulta <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
             </div>
-        </section>
+
+            <!-- FOTO CON DIFUMINADO -->
+            <div class="w-full md:w-1/2 reveal flex flex-col items-center">
+                
+                <!-- Contenedor de la foto -->
+                <!-- En celular es w-full, sin bordes redondeados. En PC se vuelve una tarjeta -->
+                <div class="relative w-full md:max-w-md mx-auto md:rounded-[2rem] overflow-hidden">
+                    <!-- Imagen original -->
+                    <img src="img/hero.jpeg" alt="Abogada Martha Solano" class="w-full h-auto object-cover object-center block" />
+                    
+                    <!-- Difuminado superior (Muy sutil) -->
+                    <div class="absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-cream to-transparent z-10 pointer-events-none"></div>
+
+                    <!-- Difuminado inferior (Para que el botón se fusione) -->
+                    <div class="absolute bottom-0 left-0 w-full h-36 bg-gradient-to-t from-cream via-cream/80 to-transparent z-10 pointer-events-none"></div>
+
+                    <!-- Botón superpuesto (Solo Celular) -->
+                    <!-- Lo bajamos a bottom-4 y usamos rounded-lg (menos ovalado) -->
+                    <div class="absolute bottom-4 left-0 w-full px-5 z-20 md:hidden">
+                        <a href="#contacto" class="flex items-center justify-center w-full rounded-lg bg-brand-deep px-4 py-3.5 text-[1.05rem] font-medium text-white shadow-lg transition-all duration-300">
+                            Solicitar una consulta <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Texto debajo de la foto (Solo Celular) -->
+                <p class="text-sm sm:text-base text-brand-deep/60 mt-4 text-center md:hidden">Presencial o virtual, previa cita.</p>
+            </div>
+
+        </div>
+    </section>
 
         <!-- ============ SERVICIOS ============ -->
         <section id="servicios" class="py-20 bg-cream border-t border-ink/5">
