@@ -9,12 +9,11 @@
     <link rel="icon" href="img/favicon.png" />
     <link rel="preload" as="image" href="img/hero.jpeg" />
 
-    <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     
-    <!-- MAGIA: Tailwind compilando en vivo con tu paleta de colores exacta -->
+    <!-- CDN para que se vea bien en el móvil mientras compilas en PC -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -38,55 +37,58 @@
         }
     </script>
 
-    <!-- Tus estilos personalizados (animaciones, etc) -->
     <link rel="stylesheet" href="css/styles.css" />
-    <!-- Nota: Dejamos fuera "css/tailwind.css" temporalmente para que no choque con el CDN -->
 </head>
 
-<body class="bg-cream font-sans text-ink antialiased overflow-x-hidden">
+<body class="bg-cream font-sans text-brand-deep antialiased overflow-x-hidden">
+
+    <!-- Skip link para accesibilidad -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-brand-deep focus:shadow-lg focus:rounded-md">Saltar al contenido principal</a>
 
     <!-- ============ HEADER ============ -->
+    <!-- Nota: lg:py-6 y lg:h-20 hacen el header más grande SOLO en computadoras -->
     <header class="sticky top-0 z-50 w-full bg-brand-deep text-cream shadow-sm">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8 relative">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:py-6 sm:px-6 lg:px-8 relative">
             
             <button id="mobile-menu-trigger" type="button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-cream hover:bg-white/10 transition-colors z-50" aria-label="Abrir menú" aria-expanded="false">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
 
             <a href="#" class="flex items-center shrink-0 mx-auto lg:mx-0 z-50" aria-label="Inicio">
-                <img src="img/logo-ms.png" alt="Abg. Martha Solano" class="h-12 md:h-16 w-auto object-contain" />
+                <!-- Logo más grande en PC (lg:h-20) -->
+                <img src="img/logo-ms.png" alt="Logotipo Abg. Martha Solano" class="h-12 lg:h-20 w-auto object-contain transition-all duration-300" />
             </a>
 
-            <nav class="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
-                <a href="#servicios" class="text-sm font-medium text-cream/90 hover:text-white transition-colors">Servicios</a>
-                <a href="#exterior" class="text-sm font-medium text-cream/90 hover:text-white transition-colors">Atención a distancia</a>
-                <a href="#sobre-mi" class="text-sm font-medium text-cream/90 hover:text-white transition-colors">Sobre mí</a>
-                <a href="#contacto" class="text-sm font-medium text-cream/90 hover:text-white transition-colors">Contacto</a>
+            <nav class="hidden lg:flex items-center gap-10" aria-label="Navegación principal">
+                <a href="#servicios" class="text-base font-medium text-cream/90 hover:text-white transition-colors">Servicios</a>
+                <a href="#exterior" class="text-base font-medium text-cream/90 hover:text-white transition-colors">Atención a distancia</a>
+                <a href="#sobre-mi" class="text-base font-medium text-cream/90 hover:text-white transition-colors">Sobre mí</a>
+                <a href="#contacto" class="text-base font-medium text-cream/90 hover:text-white transition-colors">Contacto</a>
             </nav>
 
-            <a href="#contacto" class="hidden lg:inline-flex items-center justify-center rounded-md bg-white px-6 py-2.5 text-sm font-semibold text-brand-deep shadow-sm transition-all duration-300 hover:bg-cream hover:shadow-md">
+            <a href="#contacto" class="hidden lg:inline-flex items-center justify-center rounded-md bg-white px-7 py-3 text-base font-semibold text-brand-deep shadow-sm transition-all duration-300 hover:bg-cream hover:shadow-md">
                 Solicitar una consulta
             </a>
         </div>
 
         <nav id="mobile-menu" class="mobile-menu lg:hidden bg-brand-deep absolute top-full left-0 w-full border-t border-white/10 shadow-xl" aria-label="Navegación móvil">
             <div class="px-4 py-4 flex flex-col gap-2">
-                <a href="#servicios" class="block px-4 py-3 rounded-lg text-sm font-medium text-cream/90 hover:bg-white/5">Servicios</a>
-                <a href="#exterior" class="block px-4 py-3 rounded-lg text-sm font-medium text-cream/90 hover:bg-white/5">Atención a distancia</a>
-                <a href="#sobre-mi" class="block px-4 py-3 rounded-lg text-sm font-medium text-cream/90 hover:bg-white/5">Sobre mí</a>
-                <a href="#contacto" class="block px-4 py-3 rounded-lg text-sm font-medium text-cream/90 hover:bg-white/5">Contacto</a>
-                <a href="#contacto" class="mt-2 block text-center rounded-md bg-white px-4 py-3 text-sm font-semibold text-brand-deep">Solicitar una consulta</a>
+                <a href="#servicios" class="block px-4 py-3 rounded-lg text-base font-medium text-cream/90 hover:bg-white/5">Servicios</a>
+                <a href="#exterior" class="block px-4 py-3 rounded-lg text-base font-medium text-cream/90 hover:bg-white/5">Atención a distancia</a>
+                <a href="#sobre-mi" class="block px-4 py-3 rounded-lg text-base font-medium text-cream/90 hover:bg-white/5">Sobre mí</a>
+                <a href="#contacto" class="block px-4 py-3 rounded-lg text-base font-medium text-cream/90 hover:bg-white/5">Contacto</a>
+                <a href="#contacto" class="mt-2 block text-center rounded-md bg-white px-4 py-3 text-base font-semibold text-brand-deep">Solicitar una consulta</a>
             </div>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- ============ HERO ============ -->
         <section class="relative bg-cream overflow-hidden">
             <div class="mx-auto max-w-[1400px] w-full flex flex-col-reverse lg:flex-row items-stretch">
                 <div class="w-full lg:w-[55%] flex flex-col justify-center px-6 py-16 sm:px-12 lg:px-16 lg:py-24 xl:px-24">
                     <div class="reveal">
-                        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-plum mb-3">ABG. MARTHA SOLANO</p>
+                        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-plum mb-3">ABG. MARTHA SOLANO</p>
                         <div class="w-16 h-px bg-plum/50 mb-6"></div>
                         <p class="text-xl text-brand-deep/80 font-light mb-4">Abogada Familiar y Patrimonial</p>
                         
@@ -94,32 +96,32 @@
                             Dirección jurídica para organizar y proteger su patrimonio.
                         </h1>
 
-                        <p class="text-lg text-ink/70 leading-relaxed max-w-lg mb-8 font-light">
+                        <p class="text-xl text-brand-deep/90 leading-relaxed max-w-lg mb-8 font-light">
                             Herencias, escrituras y regularización de propiedades, con negociación estratégica y seguimiento claro.
                         </p>
 
-                        <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-plum to-gold px-8 py-3.5 text-base font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-plum/30 w-fit mb-8 group">
+                        <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-plum to-gold px-8 py-3.5 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-plum/30 w-fit mb-8 group">
                             Solicitar una consulta
                             <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
 
-                        <div class="flex flex-wrap items-center gap-6 text-sm text-ink/60 mb-10">
+                        <div class="flex flex-wrap items-center gap-6 text-base text-brand-deep/80 mb-10">
                             <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-plum" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <svg class="w-5 h-5 text-plum" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                 <span>Presencial en Santo Domingo</span>
                             </div>
                             <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-plum" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <svg class="w-5 h-5 text-plum" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 <span>Atención a distancia</span>
                             </div>
                         </div>
 
-                        <p class="font-display italic text-plum text-lg sm:text-xl">Confianza para decidir. Estrategia para proteger.</p>
+                        <p class="font-display italic text-plum text-xl sm:text-2xl">Confianza para decidir. Estrategia para proteger.</p>
                     </div>
                 </div>
 
                 <div class="w-full lg:w-[45%] relative min-h-[400px] lg:min-h-full reveal">
-                    <img src="img/hero.jpeg" alt="Abg. Martha Solano" class="absolute inset-0 w-full h-full object-cover object-center" />
+                    <img src="img/hero.jpeg" alt="Abogada Martha Solano en su oficina" class="absolute inset-0 w-full h-full object-cover object-center" />
                 </div>
             </div>
         </section>
@@ -128,7 +130,7 @@
         <section id="servicios" class="py-20 bg-cream border-t border-ink/5">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="text-center mb-16 reveal">
-                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-plum mb-2">SERVICIOS JURÍDICOS</p>
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-plum mb-2">SERVICIOS JURÍDICOS</p>
                     <h2 class="text-3xl md:text-5xl font-display font-medium text-brand-deep">¿Qué necesita poner en orden?</h2>
                 </div>
 
@@ -138,8 +140,8 @@
                             <span class="text-4xl font-display text-plum">01</span>
                             <h3 class="text-xl font-bold text-brand-deep mt-2">Herencias y escrituras</h3>
                         </div>
-                        <p class="text-ink/70 text-sm mb-6">Organice la transmisión y documentación de sus bienes.</p>
-                        <a href="#contacto" class="inline-flex items-center gap-2 rounded-full bg-brand-deep px-5 py-2.5 text-sm font-medium text-white hover:bg-ink transition-colors">
+                        <p class="text-base text-brand-deep/80 mb-6">Organice la transmisión y documentación de sus bienes.</p>
+                        <a href="#contacto" class="inline-flex items-center gap-2 rounded-full bg-brand-deep px-5 py-2.5 text-base font-medium text-white hover:bg-ink transition-colors">
                             Consultar este servicio <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
                     </div>
@@ -148,8 +150,8 @@
                             <span class="text-4xl font-display text-plum">02</span>
                             <h3 class="text-xl font-bold text-brand-deep mt-2">Regularización de propiedades</h3>
                         </div>
-                        <p class="text-ink/70 text-sm mb-6">Revise los pendientes antes de vender, dividir o donar.</p>
-                        <a href="#contacto" class="inline-flex items-center gap-2 rounded-full bg-brand-deep px-5 py-2.5 text-sm font-medium text-white hover:bg-ink transition-colors">
+                        <p class="text-base text-brand-deep/80 mb-6">Revise los pendientes antes de vender, dividir o donar.</p>
+                        <a href="#contacto" class="inline-flex items-center gap-2 rounded-full bg-brand-deep px-5 py-2.5 text-base font-medium text-white hover:bg-ink transition-colors">
                             Consultar este servicio <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
                     </div>
@@ -158,8 +160,8 @@
                             <span class="text-4xl font-display text-plum">03</span>
                             <h3 class="text-xl font-bold text-brand-deep mt-2">Negociación y acuerdos</h3>
                         </div>
-                        <p class="text-ink/70 text-sm mb-6">Defina alternativas y compromisos claros.</p>
-                        <a href="#contacto" class="inline-flex items-center gap-2 rounded-full bg-brand-deep px-5 py-2.5 text-sm font-medium text-white hover:bg-ink transition-colors">
+                        <p class="text-base text-brand-deep/80 mb-6">Defina alternativas y compromisos claros.</p>
+                        <a href="#contacto" class="inline-flex items-center gap-2 rounded-full bg-brand-deep px-5 py-2.5 text-base font-medium text-white hover:bg-ink transition-colors">
                             Consultar este servicio <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
                     </div>
@@ -168,20 +170,20 @@
                 <div class="bg-sand/50 rounded-xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6 reveal">
                     <div class="flex-1">
                         <h4 class="font-bold text-brand-deep text-lg">Asuntos de familia</h4>
-                        <p class="text-ink/70 text-sm">Acompañamiento en procesos familiares con un enfoque práctico y humano.</p>
+                        <p class="text-base text-brand-deep/80">Acompañamiento en procesos familiares con un enfoque práctico y humano.</p>
                     </div>
-                    <a href="#contacto" class="text-sm font-semibold text-plum hover:text-brand-deep flex items-center gap-1 shrink-0">Conocer más &rarr;</a>
+                    <a href="#contacto" class="text-base font-semibold text-plum hover:text-brand-deep flex items-center gap-1 shrink-0">Conocer más &rarr;</a>
                     <div class="hidden md:block w-px h-10 bg-ink/10"></div>
                     <div class="flex-1">
                         <h4 class="font-bold text-brand-deep text-lg">Gestión de arriendos</h4>
-                        <p class="text-ink/70 text-sm">Ordene contratos, obligaciones y condiciones de forma clara.</p>
+                        <p class="text-base text-brand-deep/80">Ordene contratos, obligaciones y condiciones de forma clara.</p>
                     </div>
-                    <a href="#contacto" class="text-sm font-semibold text-plum hover:text-brand-deep flex items-center gap-1 shrink-0">Conocer más &rarr;</a>
+                    <a href="#contacto" class="text-base font-semibold text-plum hover:text-brand-deep flex items-center gap-1 shrink-0">Conocer más &rarr;</a>
                 </div>
             </div>
         </section>
 
-        <!-- ============ EXTERIOR ============ -->
+        <!-- ============ ATENCIÓN DESDE EL EXTERIOR ============ -->
         <section id="exterior" class="bg-brand-deep text-cream py-20">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -189,12 +191,13 @@
                         <h2 class="text-3xl md:text-5xl font-display font-medium leading-tight mb-6">
                             Aunque usted esté lejos, su patrimonio merece atención cercana.
                         </h2>
-                        <p class="text-lg text-cream/80 mb-8 font-light">
+                        <p class="text-xl text-cream/90 mb-8 font-light">
                             Coordine su consulta desde el exterior y conozca los pasos necesarios para su caso en Ecuador.
                         </p>
-                        <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-white px-8 py-3.5 text-base font-medium text-brand-deep shadow-lg hover:bg-cream transition-all">
+                        <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-white px-8 py-3.5 text-lg font-medium text-brand-deep shadow-lg hover:bg-cream transition-all">
                             Consultar desde el exterior <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
+                        <p class="text-base text-cream/70 mt-6">Los poderes, firmas y actuaciones presenciales se determinan según cada caso.</p>
                     </div>
 
                     <div class="space-y-6 reveal">
@@ -202,31 +205,30 @@
                             <span class="text-2xl font-display text-plum/80">01</span>
                             <div>
                                 <h4 class="font-bold text-lg">Consulta inicial</h4>
-                                <p class="text-cream/70 text-sm">Conversamos sobre su situación.</p>
+                                <p class="text-cream/80 text-base">Conversamos sobre su situación.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4 border-b border-white/10 pb-4">
                             <span class="text-2xl font-display text-plum/80">02</span>
                             <div>
                                 <h4 class="font-bold text-lg">Alcance y propuesta</h4>
-                                <p class="text-cream/70 text-sm">Conozca las etapas y los honorarios.</p>
+                                <p class="text-cream/80 text-base">Conozca las etapas y los honorarios.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4 border-b border-white/10 pb-4">
                             <span class="text-2xl font-display text-plum/80">03</span>
                             <div>
                                 <h4 class="font-bold text-lg">Documentación y autorización</h4>
-                                <p class="text-cream/70 text-sm">Definimos qué se necesita para actuar.</p>
+                                <p class="text-cream/80 text-base">Definimos qué se necesita para actuar.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
                             <span class="text-2xl font-display text-plum/80">04</span>
                             <div>
                                 <h4 class="font-bold text-lg">Gestión y seguimiento</h4>
-                                <p class="text-cream/70 text-sm">Reciba información sobre los avances.</p>
+                                <p class="text-cream/80 text-base">Reciba información sobre los avances.</p>
                             </div>
                         </div>
-                        <p class="text-xs text-cream/50 mt-6">Los poderes, firmas y actuaciones presenciales se determinan según cada caso.</p>
                     </div>
                 </div>
             </div>
@@ -237,43 +239,43 @@
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div class="relative reveal w-full max-w-md mx-auto lg:max-w-none">
-                        <img src="img/sobre-mi.jpeg" alt="Abg. Martha Solano atendiendo a clienta" class="w-full h-auto object-cover rounded-xl shadow-lg" />
+                        <img src="img/sobre-mi.jpeg" alt="Abogada Martha Solano conversando con una clienta en su oficina" class="w-full h-auto object-cover rounded-xl shadow-lg" />
                     </div>
                     
                     <div class="reveal">
-                        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-plum mb-3">ABG. MARTHA SOLANO</p>
+                        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-plum mb-3">ABG. MARTHA SOLANO</p>
                         <div class="w-16 h-px bg-plum/50 mb-6"></div>
                         
                         <h2 class="text-3xl md:text-5xl font-display font-medium text-brand-deep mb-6">Escuchar su situación es el primer paso.</h2>
-                        <p class="text-lg text-ink/70 leading-relaxed mb-8">
-                            Integro el criterio jurídico con la experiencia en administración de propiedades para ayudarle a tomar decisiones informadas.
+                        <p class="text-xl text-brand-deep/90 leading-relaxed mb-8">
+                            Integro el criterio jurídico con la experiencia inmobiliaria para ayudarle a decidir con seguridad.
                         </p>
 
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                             <div class="flex flex-col items-center text-center p-4 bg-white rounded-lg border border-ink/5">
-                                <svg class="w-8 h-8 text-plum mb-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                <span class="text-xs font-semibold text-brand-deep">Abogada Familiar y Patrimonial</span>
+                                <svg class="w-10 h-10 text-plum mb-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                <span class="text-sm font-semibold text-brand-deep">Abogada Familiar y Patrimonial</span>
                             </div>
                             <div class="flex flex-col items-center text-center p-4 bg-white rounded-lg border border-ink/5">
-                                <svg class="w-8 h-8 text-plum mb-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
-                                <span class="text-xs font-semibold text-brand-deep">Dirección jurídica y negociación estratégica</span>
+                                <svg class="w-10 h-10 text-plum mb-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                                <span class="text-sm font-semibold text-brand-deep">Dirección jurídica y negociación</span>
                             </div>
                             <div class="flex flex-col items-center text-center p-4 bg-white rounded-lg border border-ink/5">
-                                <svg class="w-8 h-8 text-plum mb-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                                <span class="text-xs font-semibold text-brand-deep">Administración de propiedades desde 2012</span>
+                                <svg class="w-10 h-10 text-plum mb-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                                <span class="text-sm font-semibold text-brand-deep">Administración de propiedades</span>
                             </div>
                         </div>
 
                         <div class="bg-sand/30 rounded-lg p-6 mb-8 border border-plum/10">
                             <h4 class="font-display text-xl text-brand-deep mb-3">Así trabajo</h4>
-                            <div class="flex flex-wrap gap-4 text-sm text-ink/70">
-                                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-plum"></span> Explicaciones claras y sin prisa</span>
-                                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-plum"></span> Alcance y honorarios definidos</span>
-                                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-plum"></span> Seguimiento de la gestión</span>
+                            <div class="flex flex-wrap gap-4 text-base text-brand-deep/80">
+                                <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-plum"></span> Explicaciones claras</span>
+                                <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-plum"></span> Honorarios definidos</span>
+                                <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-plum"></span> Seguimiento</span>
                             </div>
                         </div>
 
-                        <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-plum to-gold px-8 py-3.5 text-base font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-plum/30">
+                        <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-plum to-gold px-8 py-3.5 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-plum/30">
                             Conocer cómo puedo ayudarle <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
                     </div>
@@ -291,26 +293,26 @@
                     
                     <div class="md:w-2/3 space-y-4 reveal w-full">
                         <div class="faq-item bg-white rounded-lg border border-ink/5 overflow-hidden">
-                            <button type="button" class="faq-button flex w-full items-center justify-between p-5 text-left font-semibold text-brand-deep" aria-expanded="false">
+                            <button type="button" class="faq-button flex w-full items-center justify-between p-5 text-left font-semibold text-lg text-brand-deep" aria-expanded="false">
                                 ¿Puedo consultar si vivo en el exterior?
                                 <span class="faq-chevron text-plum transition-transform duration-300">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                                 </span>
                             </button>
                             <div class="faq-answer px-5 bg-white">
-                                <p class="text-sm text-ink/70 pb-5">Sí. La atención a distancia está diseñada para ecuatorianos en el exterior, permitiendo coordinar gestiones, revisar documentos y definir estrategias sin necesidad de viajar.</p>
+                                <p class="text-base text-brand-deep/80 pb-5">Sí. La atención a distancia permite coordinar gestiones, revisar documentos y definir estrategias sin necesidad de viajar.</p>
                             </div>
                         </div>
 
                         <div class="faq-item bg-white rounded-lg border border-ink/5 overflow-hidden">
-                            <button type="button" class="faq-button flex w-full items-center justify-between p-5 text-left font-semibold text-brand-deep" aria-expanded="false">
+                            <button type="button" class="faq-button flex w-full items-center justify-between p-5 text-left font-semibold text-lg text-brand-deep" aria-expanded="false">
                                 ¿Cómo se definen los honorarios?
                                 <span class="faq-chevron text-plum transition-transform duration-300">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
                                 </span>
                             </button>
                             <div class="faq-answer px-5 bg-white">
-                                <p class="text-sm text-ink/70 pb-5">Los honorarios se basan en el alcance, la complejidad y las etapas requeridas. Tras la consulta inicial, se presenta una propuesta clara que diferencia los honorarios profesionales de los costos externos.</p>
+                                <p class="text-base text-brand-deep/80 pb-5">Se basan en el alcance y complejidad. Tras la consulta inicial, se presenta una propuesta clara que diferencia honorarios de costos externos.</p>
                             </div>
                         </div>
                     </div>
@@ -325,24 +327,24 @@
                     
                     <div class="reveal text-center lg:text-left">
                         <h2 class="text-3xl md:text-5xl font-display font-medium text-white mb-6">Conversemos sobre su patrimonio.</h2>
-                        <p class="text-lg text-cream/80 mb-8 font-light">Solicite una consulta presencial o virtual, previa cita.</p>
+                        <p class="text-xl text-cream/90 mb-8 font-light">Solicite una consulta presencial o virtual, previa cita.</p>
                         
                         <div class="mb-8">
-                            <p class="text-xl text-plum/80 mb-1">Abg. Martha Solano</p>
+                            <p class="text-xl text-plum/90 mb-1">Abg. Martha Solano</p>
                             <a href="tel:+593990485395" class="text-4xl md:text-5xl font-bold text-white hover:text-cream transition-colors">+593 99 048 5395</a>
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
-                            <a href="https://wa.me/593990485395?text=Hola%2C%20Abg.%20Martha%20Solano.%20Quisiera%20solicitar%20una%20consulta." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-3.5 text-base font-medium text-white shadow-lg hover:bg-[#1fb858] transition-colors">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                            <a href="https://wa.me/593990485395?text=Hola%2C%20Abg.%20Martha%20Solano.%20Quisiera%20solicitar%20una%20consulta." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-8 py-3.5 text-lg font-medium text-white shadow-lg hover:bg-[#1fb858] transition-colors">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
                                 Escribir por WhatsApp
                             </a>
-                            <a href="tel:+593990485395" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/20 bg-transparent px-8 py-3.5 text-base font-medium text-white hover:bg-white/10 transition-colors">
+                            <a href="tel:+593990485395" class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/30 bg-transparent px-8 py-3.5 text-lg font-medium text-white hover:bg-white/10 transition-colors">
                                 Llamar
                             </a>
                         </div>
 
-                        <div class="text-sm text-cream/70 leading-relaxed">
+                        <div class="text-base text-cream/80 leading-relaxed">
                             <p class="font-semibold text-white mb-1">Oficina</p>
                             <p>Av. Quito y Tulcán</p>
                             <p>Edificio Hidalgo Ordóñez · Oficina 204</p>
@@ -354,18 +356,18 @@
                         <div class="bg-white rounded-xl p-6 sm:p-8 shadow-2xl text-ink">
                             <h3 class="text-2xl font-display font-medium text-brand-deep mb-6">Cuénteme su caso</h3>
                             
-                            <form id="form-calificacion" class="space-y-4" novalidate>
+                            <form id="form-calificacion" class="space-y-5" novalidate>
                                 <div>
-                                    <label for="nombre" class="block text-sm font-medium text-brand-deep mb-1">Nombre</label>
-                                    <input id="nombre" type="text" required placeholder="Su nombre" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-plum focus:ring-1 focus:ring-plum outline-none transition-all" />
+                                    <label for="nombre" class="block text-base font-medium text-brand-deep mb-1">Nombre</label>
+                                    <input id="nombre" type="text" required placeholder="Su nombre" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-plum focus:ring-1 focus:ring-plum outline-none transition-all" />
                                 </div>
                                 <div>
-                                    <label for="ubicacion" class="block text-sm font-medium text-brand-deep mb-1">Ciudad o país</label>
-                                    <input id="ubicacion" type="text" required placeholder="Ej. Quito, Madrid, Nueva York" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-plum focus:ring-1 focus:ring-plum outline-none transition-all" />
+                                    <label for="ubicacion" class="block text-base font-medium text-brand-deep mb-1">Ciudad o país</label>
+                                    <input id="ubicacion" type="text" required placeholder="Ej. Quito, Madrid, Nueva York" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-plum focus:ring-1 focus:ring-plum outline-none transition-all" />
                                 </div>
                                 <div>
-                                    <label for="area" class="block text-sm font-medium text-brand-deep mb-1">¿Qué necesita resolver?</label>
-                                    <select id="area" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-plum focus:ring-1 focus:ring-plum outline-none bg-white">
+                                    <label for="area" class="block text-base font-medium text-brand-deep mb-1">¿Qué necesita resolver?</label>
+                                    <select id="area" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-plum focus:ring-1 focus:ring-plum outline-none bg-white">
                                         <option value="Familia">Asuntos de familia</option>
                                         <option value="Herencias o escrituras">Herencias o escrituras</option>
                                         <option value="Regularización">Regularización de propiedades</option>
@@ -375,17 +377,14 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="descripcion" class="block text-sm font-medium text-brand-deep mb-1">Cuénteme brevemente su caso</label>
-                                    <textarea id="descripcion" rows="3" placeholder="Cuénteme brevemente su caso..." class="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:border-plum focus:ring-1 focus:ring-plum outline-none transition-all"></textarea>
+                                    <label for="descripcion" class="block text-base font-medium text-brand-deep mb-1">Cuénteme brevemente su caso</label>
+                                    <textarea id="descripcion" rows="3" placeholder="Cuénteme brevemente su caso..." class="w-full rounded-lg border border-gray-300 px-4 py-3 text-base focus:border-plum focus:ring-1 focus:ring-plum outline-none transition-all"></textarea>
                                 </div>
                                 
-                                <button type="submit" class="w-full inline-flex justify-center items-center gap-2 rounded-full bg-brand-deep px-6 py-3 text-base font-semibold text-white hover:bg-ink transition-colors mt-2">
+                                <button type="submit" class="w-full inline-flex justify-center items-center gap-2 rounded-full bg-brand-deep px-6 py-4 text-lg font-semibold text-white hover:bg-ink transition-colors mt-2">
                                     Preparar mensaje de WhatsApp
                                 </button>
-                                <p class="text-center text-xs text-gray-500 mt-3">Podrá revisar el mensaje antes de enviarlo.</p>
-                                <div class="text-center mt-2">
-                                    <a href="#" class="text-xs text-brand-deep underline">Privacidad</a>
-                                </div>
+                                <p class="text-center text-sm text-gray-500 mt-3">Podrá revisar el mensaje antes de enviarlo.</p>
                             </form>
                         </div>
                     </div>
@@ -396,11 +395,11 @@
     </main>
 
     <!-- ============ FOOTER ============ -->
-    <footer class="bg-brand-deep text-cream/80 py-8 border-t border-white/10 text-sm">
+    <footer class="bg-brand-deep text-cream/80 py-10 border-t border-white/10 text-base">
         <div class="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-            <div class="flex flex-col items-center md:items-start gap-2">
-                <img src="img/logo-ms.png" alt="Logo" class="h-10 w-auto opacity-90 mb-2" />
-                <p class="font-display italic text-plum">Confianza para decidir. Estrategia para proteger.</p>
+            <div class="flex flex-col items-center md:items-start gap-3">
+                <img src="img/logo-ms.png" alt="Logo" class="h-12 w-auto opacity-90 mb-2" />
+                <p class="font-display italic text-plum text-lg">Confianza para decidir. Estrategia para proteger.</p>
             </div>
             
             <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
@@ -409,8 +408,8 @@
                 <a href="https://instagram.com/abg.marthasolano" target="_blank" class="hover:text-white transition-colors">@abg.marthasolano</a>
                 <span class="hidden md:inline text-white/20">|</span>
                 <div class="flex gap-4">
-                    <a href="#" class="hover:text-white transition-colors">Política de privacidad</a>
-                    <a href="#" class="hover:text-white transition-colors">Aviso legal</a>
+                    <a href="legal.html#privacidad" class="hover:text-white transition-colors">Política de privacidad</a>
+                    <a href="legal.html#aviso" class="hover:text-white transition-colors">Aviso legal</a>
                 </div>
             </div>
         </div>
@@ -420,8 +419,8 @@
     <a href="https://wa.me/593990485395?text=Hola%2C%20Abg.%20Martha%20Solano.%20Quisiera%20solicitar%20una%20consulta." target="_blank" rel="noopener noreferrer"
         aria-label="Escribir por WhatsApp"
         class="whatsapp-float">
-        <svg class="h-7 w-7" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
-            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.6-6.6z"/>
+        <svg class="h-8 w-8" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
         </svg>
     </a>
 
