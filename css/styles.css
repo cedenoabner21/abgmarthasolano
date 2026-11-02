@@ -3,22 +3,26 @@
 ========================================================= */
 html {
     scroll-behavior: smooth;
-    font-size: 90%;
+    font-size: 95%; /* Tamaño ligeramente más compacto para encajar mejor */
+}
+
+body {
+    overflow-x: hidden;
 }
 
 section[id] {
-    scroll-margin-top: 110px;
+    scroll-margin-top: 90px;
 }
 
 /* =========================================================
-   SCROLL REVEAL — Efecto de aparición
+   SCROLL REVEAL — Animación de aparición
 ========================================================= */
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
     transition: 
-        opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.is-visible {
@@ -32,56 +36,28 @@ section[id] {
 .mobile-menu {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
+    transition: max-height 0.4s ease-in-out;
 }
 .mobile-menu.is-open {
     max-height: 500px;
 }
 
 /* =========================================================
-   ACORDEÓN FAQ
+   ACORDEÓN FAQ (Adaptado al nuevo diseño)
 ========================================================= */
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-.faq-item.is-open .faq-answer {
-    max-height: 500px;
-    padding-top: 0;
-    padding-bottom: 1.5rem;
-}
-.faq-item .faq-chevron {
-    transition: transform 0.3s ease-in-out;
-}
-.faq-item.is-open .faq-chevron {
-    transform: rotate(180deg);
+    transition: max-height 0.3s ease-in-out;
 }
 
-/* =========================================================
-   CHIPS DEL FORMULARIO
-========================================================= */
-.chip {
-    border-radius: 9999px;
-    border-width: 1px;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all 0.2s;
-    border-color: rgba(255, 255, 255, 0.2);
-    color: rgba(246, 245, 242, 0.8);
-    background-color: transparent;
-    cursor: pointer;
+.faq-item.is-open .faq-answer {
+    max-height: 300px;
 }
-.chip:hover {
-    border-color: rgba(223, 155, 136, 0.6);
-}
-.chip.is-selected {
-    border-color: #df9b88;
-    background-color: #df9b88;
-    color: #1a4357;
+
+/* El ícono de "+" se convierte en "x" al abrir */
+.faq-item.is-open .faq-chevron {
+    transform: rotate(45deg);
 }
 
 /* =========================================================
@@ -89,8 +65,8 @@ section[id] {
 ========================================================= */
 .whatsapp-float {
     position: fixed;
-    bottom: 1.25rem;
-    right: 1.25rem;
+    bottom: 1.5rem;
+    right: 1.5rem;
     z-index: 50;
     width: 3.5rem;
     height: 3.5rem;
@@ -100,10 +76,12 @@ section[id] {
     border-radius: 9999px;
     background-color: #25D366;
     color: #fff;
-    box-shadow: 0 25px 50px -12px rgba(37, 211, 102, 0.4);
-    transition: all 0.3s;
+    box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.5);
+    transition: all 0.3s ease;
 }
+
 .whatsapp-float:hover {
     transform: scale(1.1);
     background-color: #1fb858;
+    box-shadow: 0 20px 35px -5px rgba(37, 211, 102, 0.6);
 }
