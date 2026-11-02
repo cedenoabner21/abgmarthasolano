@@ -172,7 +172,10 @@ function initSmoothScroll() {
             const header = document.querySelector('header');
             const headerHeight = header ? header.offsetHeight : 0;
             const startPosition = window.pageYOffset;
-            const targetPosition = targetElement.getBoundingClientRect().top + startPosition - headerHeight - 20;
+            
+            // Ajuste: Restamos 60px (antes eran 20px) para que el título quede bien abajo del header
+            const targetPosition = targetElement.getBoundingClientRect().top + startPosition - headerHeight - 60;
+            
             const distance = targetPosition - startPosition;
             const duration = 800;
             let startTime = null;
