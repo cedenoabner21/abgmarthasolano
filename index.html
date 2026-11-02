@@ -43,20 +43,20 @@
 <body class="bg-cream font-sans text-brand-deep antialiased overflow-x-hidden">
 
     <!-- Skip link para accesibilidad -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-brand-deep focus:shadow-lg focus:rounded-md">Saltar al contenido principal</a>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-white focus:text-brand-deep focus:shadow-lg focus:rounded-md">Saltar al contenido principal</
 
-    <!-- ============ HEADER ============ -->
-    <!-- Nota: lg:py-6 y lg:h-20 hacen el header más grande SOLO en computadoras -->
+<!-- ============ HEADER ============ -->
     <header class="sticky top-0 z-50 w-full bg-brand-deep text-cream shadow-sm">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:py-6 sm:px-6 lg:px-8 relative">
+        <!-- Aumentamos el padding vertical en móvil (py-5) para que el cintillo no se vea corto -->
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:py-6 sm:px-6 lg:px-8 relative">
             
             <button id="mobile-menu-trigger" type="button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-cream hover:bg-white/10 transition-colors z-50" aria-label="Abrir menú" aria-expanded="false">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
 
             <a href="#" class="flex items-center shrink-0 mx-auto lg:mx-0 z-50" aria-label="Inicio">
-                <!-- Logo más grande en PC (lg:h-20) -->
-                <img src="img/logo-ms.png" alt="Logotipo Abg. Martha Solano" class="h-12 lg:h-20 w-auto object-contain transition-all duration-300" />
+                <!-- Logo un poco más grande en móvil (h-14) -->
+                <img src="img/logo-ms.png" alt="Logotipo Abg. Martha Solano" class="h-14 lg:h-20 w-auto object-contain" />
             </a>
 
             <nav class="hidden lg:flex items-center gap-10" aria-label="Navegación principal">
@@ -81,13 +81,16 @@
             </div>
         </nav>
     </header>
-
     <main id="main-content">
-        <!-- ============ HERO ============ -->
+        
+<!-- ============ HERO ============ -->
         <section class="relative bg-cream overflow-hidden">
-            <div class="mx-auto max-w-[1400px] w-full flex flex-col-reverse lg:flex-row items-stretch">
-                <div class="w-full lg:w-[55%] flex flex-col justify-center px-6 py-16 sm:px-12 lg:px-16 lg:py-24 xl:px-24">
-                    <div class="reveal">
+            <!-- Quitamos el "flex-col-reverse". Ahora en celular el texto va primero y la foto después -->
+            <div class="mx-auto max-w-[1400px] w-full flex flex-col lg:flex-row items-stretch">
+                
+                <!-- Texto (Ahora es lo primero que se ve en celular) -->
+                <div class="w-full lg:w-[55%] flex flex-col justify-center px-6 py-10 sm:px-12 lg:px-16 lg:py-24 xl:px-24">
+                    <div class="reveal text-left"> <!-- Forzamos alineación a la izquierda -->
                         <p class="text-sm font-semibold uppercase tracking-[0.2em] text-plum mb-3">ABG. MARTHA SOLANO</p>
                         <div class="w-16 h-px bg-plum/50 mb-6"></div>
                         <p class="text-xl text-brand-deep/80 font-light mb-4">Abogada Familiar y Patrimonial</p>
@@ -96,16 +99,17 @@
                             Dirección jurídica para organizar y proteger su patrimonio.
                         </h1>
 
-                        <p class="text-xl text-brand-deep/90 leading-relaxed max-w-lg mb-8 font-light">
+                        <p class="text-lg text-brand-deep/90 leading-relaxed max-w-lg mb-8 font-light">
                             Herencias, escrituras y regularización de propiedades, con negociación estratégica y seguimiento claro.
                         </p>
 
+                        <!-- El botón ahora resalta primero -->
                         <a href="#contacto" class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-plum to-gold px-8 py-3.5 text-lg font-medium text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-plum/30 w-fit mb-8 group">
                             Solicitar una consulta
                             <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
 
-                        <div class="flex flex-wrap items-center gap-6 text-base text-brand-deep/80 mb-10">
+                        <div class="flex flex-wrap items-center gap-6 text-base text-brand-deep/80 mb-8">
                             <div class="flex items-center gap-2">
                                 <svg class="w-5 h-5 text-plum" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                 <span>Presencial en Santo Domingo</span>
@@ -120,8 +124,10 @@
                     </div>
                 </div>
 
-                <div class="w-full lg:w-[45%] relative min-h-[400px] lg:min-h-full reveal">
-                    <img src="img/hero.jpeg" alt="Abogada Martha Solano en su oficina" class="absolute inset-0 w-full h-full object-cover object-center" />
+                <!-- Foto (Más pequeña en celular para no comerse la pantalla) -->
+                <div class="w-full lg:w-[45%] relative h-[350px] sm:h-[400px] lg:h-auto reveal">
+                    <!-- object-top hace que en celular se vea tu rostro y no las piernas -->
+                    <img src="img/hero.jpeg" alt="Abogada Martha Solano en su oficina" class="absolute inset-0 w-full h-full object-cover object-top" />
                 </div>
             </div>
         </section>
